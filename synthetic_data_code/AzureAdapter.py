@@ -1,7 +1,4 @@
 from openai import AzureOpenAI, OpenAIError
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 class AzureAdapter:
