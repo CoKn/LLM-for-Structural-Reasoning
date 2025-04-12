@@ -12,7 +12,7 @@ class AzureAdapter:
             azure_endpoint=api_endpoint,
         )
 
-    def call_model(self, prompt: str, system_prompt: str, deployment_name: str, json_mode: bool = True) -> str:
+    def call_model(self, prompt: str, system_prompt: str, deployment_name: str) -> str:
         try:
             messages = [
                 {"role": "system", "content": system_prompt},
