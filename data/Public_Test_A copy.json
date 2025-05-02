@@ -1,0 +1,42 @@
+[
+       {
+            "question": "Fair use refers to the non-commercial use of works published by others without the permission of the copyright owner, and without having to pay remuneration under the circumstances specified in the law.The \"cases specified in the law\" mainly include: (1) Personal study, research or appreciation, using published works of others; (2) performing published works for free; (3) copying, painting, photography, video recording of artistic works installed or displayed in outdoor public places; (4) Translate published works created in Chinese and written into minority languages and publish works for publication.\nAccording to the above provisions, Which of the following are fair use:\nA.A sang an unpublished song at the class party\nB.B translates an English work into Mongolian work and publishes it\nC.Company C took the sculptures in the public square and made them into pictures.\nD.Ding Wei wrote a paper and copied a paper published by Geng in a journal for reference",
+            "question_parsing": [],
+            "answer": "d",
+            "id": 2021,
+            "cot": "e definition of fair use mentions that it is the non-commercial use of works published by others without permission, and the main cases specified in the law include personal study, research, or appreciation, performing published works for free, copying artistic works displayed in outdoor public places, and translating published works into minority languages. Options B and D seem to fit into the category of fair use, as they involve translating and using published works for non-commercial purposes. Option C involves copying artistic works displayed in public places, which is also a specified case of fair use. Option A, however, involves singing an unpublished song, which is not a specified case of fair use.",
+            "cot_parsing": []
+        },
+        {
+            "question": "A.B, C, D, and P.The five people traveled by high-speed rail, and they were sitting in five seats A.B, C, D, and F in the same row.Known: (1) If one of A or B is sitting in Block C, then C is sitting in Block B; (2) If Peng is sitting in Block C, then D is sitting in Block F.\nIf Ding sits in Block B, then it is certain that:\nA.A sits in Block A\nB.B sits in Block D\nC.C sits in Block C\nD.E sits in Block F",
+            "question_parsing": [],
+            "answer": "c",
+            "id": 2033,
+            "cot": "Since Ding sits in Block B, and according to the given information, if one of A or B is sitting in Block C, then C is sitting in Block B, we can conclude that A is not sitting in Block C. Therefore, A must be sitting in Block A.",
+            "cot_parsing": []
+        },
+        {
+            "question": "A company recruits the general manager secretary, Cheng Qiang, Zhu Li, Li Ping, Xue Fang to apply for the job.The company's required employment conditions are: \u2460 master's degree, \u2461 proficient in spoken English, \u2462 secretarial work more than two years Experience.Now known: (1) One of Cheng Qiang and Julie has only attended undergraduate.(2) Julie and Xue Fang have the same final education.(3) Li Ping and Xue Fang have similar English conversation skills.(4) Each person meets at least one condition, three meet the conditions\u2460, two meet the conditions\u2461, one meets the conditions\u2462.After evaluation, one of the four meets the requirements and is accepted.\nWho is this person?\nA.Cheng Qiang\nB.Julie\nC.Li Ping\nD.Xue Fang",
+            "question_parsing": [],
+            "answer": "b",
+            "id": 2130,
+            "cot": "We need to analyze the given conditions and eliminate the options that do not meet the requirements. From condition (1), we know that one of Cheng Qiang and Julie has only attended undergraduate, so neither of them can meet the condition \u2460. From condition (2), we know that Julie and Xue Fang have the same final education, so they both meet the condition \u2460. From condition (3), we know that Li Ping and Xue Fang have similar English conversation skills, so they both meet the condition \u2461. From condition (4), we know that each person meets at least one condition, three meet the conditions \u2460, two meet the conditions \u2461, one meets the conditions \u2462. Since Julie and Xue Fang both meet the conditions \u2460 and \u2461, they are the most likely candidates to meet the requirements. However, we need to consider the condition \u2462, which states that one person meets the conditions \u2462. Since Julie and Xue Fang both meet the conditions \u2460 and \u2461, it is more likely that Xue Fang meets the condition \u2462, as she is the only one left who has not been eliminated.",
+            "cot_parsing": []
+        },
+        {
+            "question": "A.B, and C are from the school football team, table tennis team, and basketball team.There is only one correct statement: (1) A is a football team; (2) B is not a football team; (3) C is not For the basketball team.\nWhich team are A.B, and C?\nA.A is for the football team; B is for the basketball team; C is for the table tennis team\nB.A is for the basketball team; B is for the football team; C is for the table tennis team\nC.A is for the table tennis team; B is for the football team; C is for the basketball team\nD.A is for the table tennis team; B is for the basketball team; C is for the football team",
+            "question_parsing": [],
+            "answer": "b",
+            "id": 2250,
+            "cot": "We are given three statements: (1) A is a football team, (2) B is not a football team, and (3) C is not a basketball team. We need to figure out which team each letter corresponds to. From statement (1), we know A is a football team. From statement (2), we know B is not a football team, so B must be either the basketball team or the table tennis team. From statement (3), we know C is not a basketball team, so C must be either the football team or the table tennis team. Since A is already a football team, C cannot be the football team, so C must be the table tennis team. This means B is the basketball team.",
+            "cot_parsing": []
+        },
+        {
+            "question": "A.B, C, and D are highly talented artists.They are dancers, painters, singers, and writers.It is not yet possible to determine the professional field in which each of them is engaged.Known: (1) One night, A and C attended the singer's first performance.(2) The artist once painted portraits for both B and the writer.(3) The writer is preparing to write a biography of A.and his biography of Ding is a bestseller.(4) A has never seen C.\nWhich of the following options correctly describes everyone's identity?\nA.A is a singer, B is a writer, C is a painter, and D is a dancer\nB.A is a dancer, B is a singer, C is a writer, and D is a painter\nC.A is a painter, B is a writer, C is a singer, and D is a writer\nD.A is a writer, B is a painter, C is a dancer, and D is a singer",
+            "question_parsing": [],
+            "answer": "b",
+            "id": 2312,
+            "cot": "We are trying to determine the professional field of each artist. From statement (1), we know that A and C attended the singer's first performance, so A and C are not the singer. From statement (2), we know that the artist who painted portraits for B and the writer is not A or C, so this artist must be D. From statement (3), we know that the writer is preparing to write a biography of A, and A's biography of Ding is a bestseller, so A is a writer. This means that B is not the writer, and B must be the singer. From statement (4), we know that A has never seen C, so A and C are not the same person. This means that C is the painter.",
+            "cot_parsing": []
+        }
+]
