@@ -1,3 +1,6 @@
+aiohappyeyeballs==2.6.1
+aiohttp==3.11.18
+aiosignal==1.3.2
 annotated-types==0.7.0
 anyio==4.8.0
 appnope==0.1.4
@@ -18,9 +21,11 @@ click==8.1.8
 comm==0.2.2
 contourpy==1.3.1
 cycler==0.12.1
+datasets==3.5.0
 debugpy==1.8.13
 decorator==5.2.1
 defusedxml==0.7.1
+dill==0.3.8
 distro==1.9.0
 docker==7.1.0
 executing==2.2.0
@@ -28,6 +33,7 @@ fastjsonschema==2.21.1
 filelock==3.17.0
 fonttools==4.56.0
 fqdn==1.5.1
+frozenlist==1.6.0
 fsspec==2025.3.0
 h11==0.14.0
 httpcore==1.0.7
@@ -61,6 +67,8 @@ matplotlib==3.10.1
 matplotlib-inline==0.1.7
 mistune==3.1.2
 mpmath==1.3.0
+multidict==6.4.3
+multiprocess==0.70.16
 mypy-extensions==1.0.0
 nbclient==0.10.2
 nbconvert==7.16.6
@@ -74,6 +82,7 @@ ollama==0.4.7
 openai==1.65.5
 overrides==7.7.0
 packaging==24.2
+pandas==2.2.3
 PandavoAgents @ file:///Users/constanitnknapp/Dev/python/PandavoAgents
 pandocfilters==1.5.1
 parso==0.8.4
@@ -83,9 +92,11 @@ pillow==11.1.0
 platformdirs==4.3.6
 prometheus_client==0.21.1
 prompt_toolkit==3.0.50
+propcache==0.3.1
 psutil==7.0.0
 ptyprocess==0.7.0
 pure_eval==0.2.3
+pyarrow==20.0.0
 pycparser==2.22
 pydantic==2.10.6
 pydantic_core==2.27.2
@@ -95,6 +106,7 @@ python-constraint==1.4.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-json-logger==3.3.0
+pytz==2025.2
 PyYAML==6.0.2
 pyzmq==26.3.0
 referencing==0.36.2
@@ -126,9 +138,12 @@ transformers==4.49.0
 types-python-dateutil==2.9.0.20241206
 typing-inspection==0.4.0
 typing_extensions==4.12.2
+tzdata==2025.2
 uri-template==1.3.0
 urllib3==2.3.0
 wcwidth==0.2.13
 webcolors==24.11.1
 webencodings==0.5.1
 websocket-client==1.8.0
+xxhash==3.5.0
+yarl==1.20.0
