@@ -19,6 +19,23 @@
 
 [Provide a clear and concise summary of your project, outlining the problem statement, objectives, and your chosen approach using NLP and LLM techniques.]
 
+
+flowchart LR
+    %% Define styles %%
+    classDef data fill:#e3f2fd,stroke:#1e88e5,stroke-width:1px;
+    classDef process fill:#fff3e0,stroke:#fb8c00,stroke-width:1px;
+    classDef output fill:#e8f5e9,stroke:#43a047,stroke-width:1px;
+    
+    A[Raw Logical Puzzles]:::data 
+    B[Synthetic Dataset Generation]:::process 
+    C[Preprocessing]:::process 
+    D[Model Training\n(QP & CoT)]:::process 
+    E[Inference & Evaluation]:::process 
+    F[Final Structured JSON]:::output
+    
+    A --> B --> C --> D --> E --> F
+
+
 ---
 
 ## Project Structure
