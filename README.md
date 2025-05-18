@@ -1,9 +1,11 @@
 # LLM-SR: Structured Reasoning with Large Language Models
 
-LLM-SR (LLM for Structural Reasoning) is a modular pipeline for transforming free-form logical puzzles and their unstructured chains of thought into richly annotated, machine-readable representations. Given a puzzle (question) and its LLM-generated CoT (cot), LLM-SR produces:
+LLM-SR (LLM for Structural Reasoning) is a modular pipeline for transforming free-form logical puzzles and their unstructured chains of thought into rich annotated, machine-readable representations. Given a puzzle (question) and its LLM-generated CoT (cot), LLM-SR produces:
 
 Question Parsing: a list of all extracted constraints and conditions from the problem statement.
+
 CoT Parsing: a sequence of reasoning steps, each paired with its supporting evidence and a Boolean “Verification” flag.
+
 Below is a concrete example of one data record in our pipeline:
 
 ```json5
