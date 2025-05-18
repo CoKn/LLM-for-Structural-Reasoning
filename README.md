@@ -131,7 +131,7 @@ Two LLaMA-3-8B-Instruct models are fine-tuned using LoRA adapters:
 ### Step 4: Inference 
 The fine-tuned models are used to parse new test questions. Our testing data includes only the question (the logical puzzle) and the chain-of-thought for the question. 
 
-![Step 4 – Inference](./images/model-training.png)
+![Step 4 – Inference](./images/inference.png)
 
 **Input:**  
 - `testingData-blank.jsonl` for question and CoT parsing
