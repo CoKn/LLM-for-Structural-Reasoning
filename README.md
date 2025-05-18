@@ -49,10 +49,11 @@ This example demonstrates how a single puzzle is converted into the question_par
 2. [Project Structure](#project-structure)
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Project](#running-the-project)
-5. [Reproducibility](#reproducibility)
-6. [Team Contributions](#team-contributions)
-7. [Results & Evaluation](#results--evaluation)
-8. [References](#references)
+5. [Approaches and Strategies](#running-the-project)
+6. [Reproducibility](#reproducibility)
+7. [Team Contributions](#team-contributions)
+8. [Results-Comparative Summary](#results--evaluation)
+9. [References](#references)
 
 ---
 
