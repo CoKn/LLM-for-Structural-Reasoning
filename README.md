@@ -297,11 +297,15 @@ All diagrams and results are included in the `diagrams/` directory
 
 | Name           | Contributions                                             |
 |----------------|-----------------------------------------------------------|
-| Erlisa Lokaj   | Data preprocessing, fine-tuning, hybrid inference design  |
-| —              | Reward model reranking and verifier training              |
-| —              | Visualization, evaluation, and structured reasoning logic |
-| —              | GitHub setup, poster, IMRAD writing, and final results    |
-
+| Erlisa Lokaj   | Data preprocessing, fine-tuning QP/CoT Model, Inference   |
+| —              | DeepSeek training and benchmark comparison                |
+| —              | Trained a joint DeBERTa verifier and compared results     |
+| —              | Trained two seperate DeBERTa verfiers for QP and CoT      |
+| —              | Reward Model Based Reranking Strategy                     |
+| —              | Hybrid Inference Strategy v1                              |
+| —              | Hybrid Inference Strategy v2                              |
+| —              | Hybrid Inference Strategy v3                              |
+| —              | Hybrid Inference Strategy v4                              |
 
 
 ---
