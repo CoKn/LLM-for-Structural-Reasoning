@@ -306,6 +306,7 @@ All diagrams and results are included in the `diagrams/` directory
 | —              | Hybrid Inference Strategy v2                              |
 | —              | Hybrid Inference Strategy v3                              |
 | —              | Hybrid Inference Strategy v4                              |
+| —              | Diagrams Creations                                        |
 
 
 ---
