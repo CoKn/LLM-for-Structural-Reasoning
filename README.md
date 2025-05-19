@@ -301,15 +301,15 @@ All diagrams and results are included in the `diagrams/` directory
 | Name           | Contributions                                             |
 |----------------|-----------------------------------------------------------|
 | Erlisa Lokaj   | Data preprocessing, fine-tuning QP/CoT Model, Inference   |
-| —              | DeepSeek training and benchmark comparison                |
-| —              | Trained a joint DeBERTa verifier and compared results     |
-| —              | Trained two seperate DeBERTa verfiers for QP and CoT      |
-| —              | Reward Model Based Reranking Strategy                     |
-| —              | Hybrid Inference Strategy v1                              |
-| —              | Hybrid Inference Strategy v2                              |
-| —              | Hybrid Inference Strategy v3                              |
-| —              | Hybrid Inference Strategy v4                              |
-| —              | Diagrams Creations                                        |
+| Erlisa Lokaj   | DeepSeek training and benchmark comparison                |
+| Erlisa Lokaj   | Trained a joint DeBERTa verifier and compared results     |
+| Erlisa Lokaj   | Trained two seperate DeBERTa verfiers for QP and CoT      |
+| Erlisa Lokaj   | Reward Model Based Reranking Strategy                     |
+| Erlisa Lokaj   | Hybrid Inference Strategy v1                              |
+| Erlisa Lokaj   | Hybrid Inference Strategy v2                              |
+| Erlisa Lokaj   | Hybrid Inference Strategy v3                              |
+| Erlisa Lokaj   | Hybrid Inference Strategy v4                              |
+| Erlisa Lokaj   | Diagrams Creations                                        |
 
 
 ---
