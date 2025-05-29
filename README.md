@@ -298,18 +298,25 @@ All diagrams and results are included in the `diagrams/` directory
 
 ## Team Contributions
 
-| Name           | Contributions                                             |
-|----------------|-----------------------------------------------------------|
-| Erlisa Lokaj   | Data preprocessing, fine-tuning QP/CoT Model, Inference   |
-| Erlisa Lokaj   | DeepSeek training and benchmark comparison                |
-| Erlisa Lokaj   | Trained a joint DeBERTa verifier and compared results     |
-| Erlisa Lokaj   | Trained two seperate DeBERTa verfiers for QP and CoT      |
-| Erlisa Lokaj   | Reward Model Based Reranking Strategy                     |
-| Erlisa Lokaj   | Hybrid Inference Strategy v1                              |
-| Erlisa Lokaj   | Hybrid Inference Strategy v2                              |
-| Erlisa Lokaj   | Hybrid Inference Strategy v3                              |
-| Erlisa Lokaj   | Hybrid Inference Strategy v4                              |
-| Erlisa Lokaj   | Diagrams Creations                                        |
+| Name             | Contributions                                                    |
+|------------------|------------------------------------------------------------------|
+| Erlisa Lokaj     | Data preprocessing, fine-tuning QP/CoT Model, Inference          |
+| Erlisa Lokaj     | DeepSeek training and benchmark comparison                       |
+| Erlisa Lokaj     | Trained a joint DeBERTa verifier and compared results            |
+| Erlisa Lokaj     | Trained two seperate DeBERTa verfiers for QP and CoT             |
+| Erlisa Lokaj     | Reward Model Based Reranking Strategy                            |
+| Erlisa Lokaj     | Hybrid Inference Strategy v1                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v2                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v3                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v4                                     |
+| Erlisa Lokaj     | Diagrams Creations                                               |
+| Constantin Knapp | Dataset resaerch                                                 |
+| Constantin Knapp | Data preprocessing Logic 701, fine-tuning QP/CoT Model, Inference |
+| Constantin Knapp | Trained Gemma 3 4B Instruct verifier and compared results        |
+| Constantin Knapp | Synthetic Data Generation                                        |
+| Constantin Knapp | Mathematical solver approach                                     |
+| Constantin Knapp | Diagrams Creations                                               |
+
 
 
 ---
