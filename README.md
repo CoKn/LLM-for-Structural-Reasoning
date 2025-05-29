@@ -310,12 +310,6 @@ All diagrams and results are included in the `diagrams/` directory
 | Erlisa Lokaj     | Hybrid Inference Strategy v3                                     |
 | Erlisa Lokaj     | Hybrid Inference Strategy v4                                     |
 | Erlisa Lokaj     | Diagrams Creations                                               |
-| Constantin Knapp | Dataset resaerch                                                 |
-| Constantin Knapp | Data preprocessing Logic 701, fine-tuning QP/CoT Model, Inference |
-| Constantin Knapp | Trained Gemma 3 4B Instruct verifier and compared results        |
-| Constantin Knapp | Synthetic Data Generation                                        |
-| Constantin Knapp | Mathematical solver approach                                     |
-| Constantin Knapp | Diagrams Creations                                               |
 
 
 
