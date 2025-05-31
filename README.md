@@ -55,7 +55,7 @@ This example demonstrates how a single puzzle is converted into the question_par
 6. [Approaches & Strategies](#approaches--strategies)
 7. [Reproducibility](#reproducibility)
 8. [Team Contributions](#team-contributions)
-9. [Results – Comparative Summary](#results---comparative-summary)
+9. [Results - Comparative Summary](#results---comparative-summary)
 10. [References](#references)
 
 ---
@@ -227,7 +227,7 @@ Follow these notebooks in order to replicate the workflow:
 3. `2_Baseline.ipynb` – Run weak heuristic or rule-based baselines  
 4. `3_Training.ipynb` – Fine-tune LoRA adapters for Question Parsing and CoT Parsing  
 5. `4_Evaluation.ipynb` – Evaluate using structured metrics (F1 scores)  
-6. `5_Demo.ipynb` – End-to-end prediction + evaluation on the test set  
+6. `5_Demo.ipynb` – End-to-end prediction + evaluation on the test set   
 
 Optional Notebooks:
 - `6_DeepSeek_Benchmark.ipynb` – Run benchmark using DeepSeek-Coder  
@@ -240,6 +240,8 @@ To evaluate predictions:
 ```bash
 python utils/eval.py --predictions predictions/final.json --references data/processed/test.json
 ```
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Pqafok5gu788MNIYvlRlzYZw_I1-kTit)
+
 ---
 ## Fine-Tuned Models on Hugging Face
 
