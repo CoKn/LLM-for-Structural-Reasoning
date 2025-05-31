@@ -197,9 +197,6 @@ This approach enables controllable and explainable reasoning, supporting future 
 ---
 ## Setup Instructions
 
-> **Note**  
-> This is a template section. You can add warnings, tips, or other notices using this format: `[!NOTE]`, `[!WARNING]`, `[!IMPORTANT]`.
-
 ### Clone Repository
 ```bash
 git clone [repository-url]
@@ -228,7 +225,7 @@ Follow these notebooks in order:
 2. `2_Baseline.ipynb` – Establishing a rule-based or weak baseline  
 3. `3_Training.ipynb` – Fine-tuning models using LoRA  
 4. `4_Evaluation.ipynb` – Structured evaluation with official metrics  
-5. `5_Demo.ipynb` – Full prediction and post-processing on new test data
+5. `5_Demo.ipynb` – Demo file
 
 You can also run utility scripts from the `utils/` directory (e.g., `eval.py`).
 
@@ -250,7 +247,7 @@ All our fine-tuned models are available on the Hugging Face Hub:
 
 Throughout the project, we experimented with multiple inference pipelines to improve structured reasoning quality. Below is a brief summary of the main strategies:
 
-### 1. Baseline LLaMA-3 Parsing
+### 1. Initial LLaMA-3 Parsing
 
 - **QP Stage:** Single LLaMA-3 model extracts constraints via in-context prompting.
 - **CoT Stage:** LLaMA-3 parses chain-of-thought into structured reasoning steps.
@@ -292,8 +289,7 @@ Throughout the project, we experimented with multiple inference pipelines to imp
   - `Statement_Macro_F1`: 0.4185  
   - `Statement_Evidence_F1`: 0.1214
 
-
-All diagrams and results are included in the `diagrams/` directory
+All diagrams are included in the `diagrams/` directory and all the metrics can be found in the `metrics/` directory
 
 ---
 
@@ -333,7 +329,7 @@ We experimented with multiple structured reasoning strategies for improving Chai
 
 | Strategy                                  | Question_F1 | Statement_F1 | Statement+Evidence_F1 | Reasoning_F1 |
 |------------------------------------------|-------------|---------------|------------------------|--------------|
-| **Baseline** (Beam-only)                 | 0.7526      | 0.4015        | **0.1849**             | **0.1405**   |
+| **Initial** (Beam-only)                 | 0.7526      | 0.4015        | **0.1849**             | **0.1405**   |
 | **Reward Model** (Step scoring only)     | 0.7658      | 0.3660        | 0.1041                 | 0.0439       |
 | **Verifier + Ensemble Reranking**        | 0.7253      | 0.2152        | 0.0953                 | 0.0681       |
 | **Hybrid v1** (3-Beam + Verifier)        | **0.7781**  | 0.4007        | 0.1276                 | 0.0880       |
@@ -346,7 +342,7 @@ We experimented with multiple structured reasoning strategies for improving Chai
 - **Hybrid v1** achieves the best *Question_F1* using 3-beam LLaMA-3 + verifier.
 - **Hybrid v4** scores highest in *Statement_F1* with rule-based evidence normalization and dependency tracing.
 - **Hybrid v2** and **Hybrid v3** both offer strong trade-offs, improving *Reasoning_F1* while maintaining question accuracy.
-- **Baseline** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
+- **Initial** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
 - **Reward Model** underperforms in reasoning and alignment despite high question accuracy, suggesting limited reward-model generalization.
 
 
