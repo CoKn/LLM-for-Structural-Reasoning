@@ -354,7 +354,19 @@ All diagrams are included in the `diagrams/` directory and all the metrics can b
 
 ## Results - Comparative Summary
 
-We experimented with multiple structured reasoning strategies for improving Chain-of-Thought (CoT) parsing using LLM decoding, verifier reranking, and rule-based scoring. The table below summarizes the results of our best inference pipelines.
+We experimented with multiple structured reasoning strategies for improving Chain-of-Thought (CoT) parsing using LLM decoding, verifier reranking, and rule-based scoring.
+
+### F1 Score Comparison Across Strategies
+
+![F1 Score Comparison](./metrics/f1_score_comparison.png)
+
+The chart above visualizes macro F1 scores across the four key evaluation metrics:
+
+- **Question F1**: Accuracy of constraint extraction
+- **Statement F1**: Coverage of reasoning steps
+- **Statement+Evidence F1**: Step correctness with evidence
+- **Reasoning F1**: Overall logical fidelity
+
 
 | Strategy                                  | Question_F1 | Statement_F1 | Statement+Evidence_F1 | Reasoning_F1 |
 |------------------------------------------|-------------|---------------|------------------------|--------------|
