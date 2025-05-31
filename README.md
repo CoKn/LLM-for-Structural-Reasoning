@@ -51,7 +51,7 @@ This example demonstrates how a single puzzle is converted into the question_par
 2. [Project Structure](#project-structure)
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Project](#running-the-project)
-5. [Hugging Face Models](#hugging-face-models)
+5. [Fine-Tuned Models](#hugging-face-models)
 6. [Approaches and Strategies](#strategies)
 7. [Reproducibility](#reproducibility)
 8. [Team Contributions](#team-contributions)
@@ -267,6 +267,7 @@ tokenizer = AutoTokenizer.from_pretrained("Erlisa/finetuned_llama3_question_pars
 model = PeftModel.from_pretrained(base_model, "Erlisa/finetuned_llama3_question_parsing")
 ```
 For DeBERTa-based verifier models, use AutoModelForSequenceClassification instead of AutoModelForCausalLM.
+
 ---
 ## Approaches & Strategies
 
