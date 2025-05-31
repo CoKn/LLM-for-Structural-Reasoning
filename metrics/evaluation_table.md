@@ -1,4 +1,4 @@
-# 📊 Evaluation Metrics
+# Evaluation Metrics
 
 | Strategy                |   Question_Macro_F1 |   Statement_Macro_F1 |   Statement_Evidence_Macro_F1 |   Reasoning_F1 |
 |:------------------------|--------------------:|---------------------:|------------------------------:|---------------:|
