@@ -1,7 +1,7 @@
 # LLM-SR: Structured Reasoning with Large Language Models
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Pqafok5gu788MNIYvlRlzYZw_I1-kTit)
-![ACL 2025 Shared Task](https://img.shields.io/badge/ACL_2025-LLM--SR-blue)
+[![ACL 2025 Shared Task](https://img.shields.io/badge/ACL_2025-LLM--SR-blue)](https://xllms.github.io/LLMSR/)
 
 
 LLM-SR (LLM for Structural Reasoning) is a modular pipeline for transforming free-form logical puzzles and their unstructured chains of thought into rich annotated, machine-readable representations. Given a puzzle (question) and its LLM-generated CoT (cot), LLM-SR produces:
