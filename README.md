@@ -165,33 +165,33 @@ This approach enables controllable and explainable reasoning, supporting future 
 ```
 .
 ├── data/
-│   ├── raw/                          # Raw logical puzzles
-│   └── processed/                    # Preprocessed training/test data
-├── metrics/                          # Evaluation results (JSON metrics)
-├── predictions/                      # Final prediction JSON files
-├── synthetic_data_code/              # Logic puzzle generation scripts
-├── utils/                            # Evaluation scripts & helpers
+│   ├── raw/                          # Raw logical puzzles (e.g., LogiQA)
+│   └── processed/                    # Preprocessed train/test datasets
+├── diagrams/                         # draw.io source files (editable)
+├── images/                           # Exported diagram visuals for documentation
+├── metrics/                          # Evaluation results (JSON + markdown)
+│   ├── *.json                        # Per-strategy evaluation metrics
+│   └── evaluation_table.md           # Summary comparison table
+├── predictions/                      # Final test predictions from inference
+├── utils/                            # Helper scripts (e.g., evaluation)
 │   └── eval.py
-├── experimentation/                 # (Optional) Early experiments / Azure adapter
-├── models/                           # Model checkpoints and adapters
-│   ├── finetuned_llama3_question_parsing/
-│   └── finetuned_llama3_cot_parsing/
 ├── .gitignore
-├── requirements.txt                 # Python dependencies
-├── README.md
-├── 1_Preprocessing.ipynb            # Generate training JSONL files from 700dataset
-├── 2_Baseline.ipynb                 # Baseline model and heuristics
-├── 3_Training.ipynb                 # Fine-tuning QP and CoT models
-├── 4_Evaluation.ipynb               # Evaluation metrics and analysis
-├── 5_Demo.ipynb                     # End-to-end demo on test set
-├── 6_DeepSeek_Benchmark.ipynb       # (Optional) DeepSeek-Coder baseline
-├── 7_Reward-Based Reranking.ipynb   # CoT reranking with reward model
-├── 8_Joint Verifier+Ensemble Scoring.ipynb # QP+CoT reranking with DeBERTa verifiers
-├── 9_Training Two Seperate Verifiers.ipynb # Train separate verifiers for QP/CoT
-├── Hybrid_Inference_Strategy_v1.ipynb     # Basic hybrid inference
-├── Hybrid_Inference_Strategy_v2.ipynb     # Beam + sampling + verifier
-├── Hybrid_Inference_Strategy_v3.ipynb     # Enhanced CoT cleaning
-├── Hybrid_Inference_Strategy_v4.ipynb     # Structure-aware scoring
+├── requirements.txt                  # Project dependencies
+├── README.md                         # Project overview and instructions
+├── 0_Data_Generation_and_Transformation.ipynb  # Preprocessing 700 dataset
+├── 1_Preprocessing.ipynb             # Preprocessing pipeline
+├── 2_Baseline.ipynb                  # Weak baselines for comparison
+├── 3_Training.ipynb                  # Fine-tuning LoRA adapters
+├── 4_Evaluation.ipynb                # Metric reporting + analysis
+├── 5_Demo.ipynb                      # End-to-end test demo
+├── 6_DeepSeek_Benchmark.ipynb        # DeepSeek-Coder baseline
+├── 7_Reward-Based Reranking.ipynb    # Reranking with reward model
+├── 8_Joint Verifier+Ensemble Scoring.ipynb  # QP + CoT DeBERTa Verifiers
+├── 9_Training Two Seperate Verifiers.ipynb  # Train separate verifiers
+├── Hybrid_Inference_Strategy_v1.ipynb       # Simple hybrid strategy
+├── Hybrid_Inference_Strategy_v2.ipynb       # Beam + sampling + verifier reranking
+├── Hybrid_Inference_Strategy_v3.ipynb       # CoT cleaning improvements
+├── Hybrid_Inference_Strategy_v4.ipynb       # Structure-aware scoring with weights
 ```
 
 ---
