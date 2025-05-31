@@ -51,11 +51,12 @@ This example demonstrates how a single puzzle is converted into the question_par
 2. [Project Structure](#project-structure)
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Project](#running-the-project)
-5. [Approaches and Strategies](#running-the-project)
-6. [Reproducibility](#reproducibility)
-7. [Team Contributions](#team-contributions)
-8. [Results-Comparative Summary](#results--evaluation)
-9. [References](#references)
+5. [Hugging Face Models](#hugging-face-models)
+6. [Approaches and Strategies](#running-the-project)
+7. [Reproducibility](#reproducibility)
+8. [Team Contributions](#team-contributions)
+9. [Results-Comparative Summary](#results--evaluation)
+10. [References](#references)
 
 ---
 
@@ -199,15 +200,15 @@ This approach enables controllable and explainable reasoning, supporting future 
 
 ### Clone Repository
 ```bash
-git clone [repository-url]
-cd [repository-folder]
+git clone https://github.com/CoKn/LLM-for-Structural-Reasoning.git
+cd LLM-for-Structural-Reasoning
 ```
 
 ### Create Environment
 ```bash
 python -m venv venv
-source venv/bin/activate  # Unix or MacOS
-venv\Scripts\activate     # Windows
+source venv/bin/activate     # For Mac/Linux
+venv\Scripts\activate        # For Windows
 ```
 
 ### Install Dependencies
@@ -219,15 +220,25 @@ pip install -r requirements.txt
 
 ## Running the Project
 
-Follow these notebooks in order:
+Follow these notebooks in order to replicate the workflow:
 
-1. `1_Preprocessing.ipynb` – Data preprocessing and JSONL generation  
-2. `2_Baseline.ipynb` – Establishing a rule-based or weak baseline  
-3. `3_Training.ipynb` – Fine-tuning models using LoRA  
-4. `4_Evaluation.ipynb` – Structured evaluation with official metrics  
-5. `5_Demo.ipynb` – Demo file
+1. `0_Data_Generation_and_Transformation.ipynb` – Preprocess the original 700 puzzles  
+2. `1_Preprocessing.ipynb` – Convert datasets into JSONL format for training  
+3. `2_Baseline.ipynb` – Run weak heuristic or rule-based baselines  
+4. `3_Training.ipynb` – Fine-tune LoRA adapters for Question Parsing and CoT Parsing  
+5. `4_Evaluation.ipynb` – Evaluate using structured metrics (F1 scores)  
+6. `5_Demo.ipynb` – End-to-end prediction + evaluation on the test set  
 
-You can also run utility scripts from the `utils/` directory (e.g., `eval.py`).
+Optional Notebooks:
+- `6_DeepSeek_Benchmark.ipynb` – Run benchmark using DeepSeek-Coder  
+- `7_Reward-Based Reranking.ipynb` – Rank CoTs using a reward model  
+- `8_Joint Verifier+Ensemble Scoring.ipynb` – Use DeBERTa verifiers for scoring  
+- `9_Training Two Seperate Verifiers.ipynb` – Fine-tune DeBERTa verifiers independently  
+- `Hybrid_Inference_Strategy_v[1-4].ipynb` – Variants of multi-step hybrid inference pipelines
+
+To evaluate predictions:
+```bash
+python utils/eval.py --predictions predictions/final.json --references data/processed/test.json
 
 ---
 ## Hugging Face Models
@@ -293,14 +304,12 @@ All diagrams are included in the `diagrams/` directory and all the metrics can b
 
 ---
 
-
-
 ## Reproducibility
 
-- **Random seeds:** All training scripts use fixed seeds for reproducibility.  
-- **Environment:** Full environment versions are listed in `requirements.txt`.  
-- **Data:** Synthetic dataset and formatting logic is provided in `synthetic_data_code/`.  
-- **Model Checkpoints:** Saved in the `models/` directory, organized by subtask and strategy.
+- **Random Seeds:** All training scripts use fixed seeds to ensure consistent results across runs.  
+- **Environment:** All dependencies and versions are listed in `requirements.txt`.  
+- **Data:** Raw and processed datasets are provided in the `data/` directory. Synthetic generation logic is available in `synthetic_data_code/`.  
+- **Models:** Fine-tuned models are hosted on [Hugging Face Hub](https://huggingface.co/Erlisa/models/tree/main). See the "Hugging Face Models" section above for links.
 
 ---
 
