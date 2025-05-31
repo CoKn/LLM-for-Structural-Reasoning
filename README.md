@@ -62,7 +62,7 @@ This example demonstrates how a single puzzle is converted into the question_par
 
 ## Project Description
 
-This project was developed for the [ACL 2025 Shared Task: LLM for Structural Reasoning (LLM-SR)](https://xreasoning.github.io/), which aims to extract interpretable, structured reasoning steps from natural language questions and chain-of-thoughts (CoT). The task focuses on producing two structured outputs:
+This project was developed for the [ACL 2025 Shared Task: LLM for Structural Reasoning (LLM-SR)](https://xllms.github.io/LLMSR/), which aims to extract interpretable, structured reasoning steps from natural language questions and chain-of-thoughts (CoT). The task focuses on producing two structured outputs:
 
 - **`question_parsing`**: a list of logical constraints extracted from the question text.  
 - **`cot_parsing`**: a step-by-step breakdown of the CoT, where each step includes a `statement`, `evidence`, and a boolean `Verification` flag.
