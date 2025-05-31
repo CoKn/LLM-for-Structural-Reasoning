@@ -324,7 +324,7 @@ All diagrams are included in the `diagrams/` directory and all the metrics can b
 - **Random Seeds:** All training scripts use fixed seeds to ensure consistent results across runs.  
 - **Environment:** All dependencies and versions are listed in `requirements.txt`.  
 - **Data:** Raw and processed datasets are provided in the `data/` directory. Synthetic generation logic is available in `synthetic_data_code/`.  
-- **Models:** Fine-tuned models are hosted on [Hugging Face Hub](https://huggingface.co/Erlisa/models/tree/main). See the "Hugging Face Models" section above for links.
+- **Models:** Fine-tuned models are hosted on [Hugging Face Hub](https://huggingface.co/Erlisa/models/tree/main). See the "Fine-Tuned Models on Hugging Face" section above for links.
 
 ---
 
