@@ -233,7 +233,19 @@ Follow these notebooks in order:
 You can also run utility scripts from the `utils/` directory (e.g., `eval.py`).
 
 ---
+## Hugging Face Models
 
+All our fine-tuned models are available on the Hugging Face Hub:
+
+- [finetuned_llama3_question_parsing](https://huggingface.co/Erlisa/models/tree/main/finetuned_llama3_question_parsing)
+- [finetuned_llama3_cot_parsing](https://huggingface.co/Erlisa/models/tree/main/finetuned_llama3_cot_parsing)
+- [deberta-qparse-verifier](https://huggingface.co/Erlisa/models/tree/main/deberta-qparse-verifier)
+- [deberta-cotparse-verifier](https://huggingface.co/Erlisa/models/tree/main/deberta-cotparse-verifier)
+- [deberta3-verifier-final](https://huggingface.co/Erlisa/models/tree/main/deberta3-verifier-final)
+- [deepseek_adapter_qp_only](https://huggingface.co/Erlisa/models/tree/main/deepseek_adapter_qp_only)
+- [deepseek_adapter_cot_only](https://huggingface.co/Erlisa/models/tree/main/deepseek_adapter_cot_only)
+
+---
 ## Approaches & Strategies
 
 Throughout the project, we experimented with multiple inference pipelines to improve structured reasoning quality. Below is a brief summary of the main strategies:
