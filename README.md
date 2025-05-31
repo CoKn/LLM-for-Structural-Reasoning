@@ -239,7 +239,7 @@ Optional Notebooks:
 To evaluate predictions:
 ```bash
 python utils/eval.py --predictions predictions/final.json --references data/processed/test.json
-
+```
 ---
 ## Hugging Face Models
 
