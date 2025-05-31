@@ -52,7 +52,7 @@ This example demonstrates how a single puzzle is converted into the question_par
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Project](#running-the-project)
 5. [Hugging Face Models](#hugging-face-models)
-6. [Approaches and Strategies](#running-the-project)
+6. [Approaches and Strategies](#strategies)
 7. [Reproducibility](#reproducibility)
 8. [Team Contributions](#team-contributions)
 9. [Results-Comparative Summary](#results--evaluation)
@@ -241,9 +241,9 @@ To evaluate predictions:
 python utils/eval.py --predictions predictions/final.json --references data/processed/test.json
 ```
 ---
-## Hugging Face Models
+## Fine-Tuned Models on Hugging Face
 
-All our fine-tuned models are available on the Hugging Face Hub:
+We fine-tuned all models used in this project from publicly available LLMs (e.g., LLaMA-3, DeBERTa, DeepSeek) using **LoRA adapters** and our synthetic dataset. The trained adapters are hosted on the Hugging Face Hub under the author profile [Erlisa](https://huggingface.co/Erlisa), and can be used for inference or further fine-tuning.
 
 - [finetuned_llama3_question_parsing](https://huggingface.co/Erlisa/models/tree/main/finetuned_llama3_question_parsing)
 - [finetuned_llama3_cot_parsing](https://huggingface.co/Erlisa/models/tree/main/finetuned_llama3_cot_parsing)
@@ -253,6 +253,20 @@ All our fine-tuned models are available on the Hugging Face Hub:
 - [deepseek_adapter_qp_only](https://huggingface.co/Erlisa/models/tree/main/deepseek_adapter_qp_only)
 - [deepseek_adapter_cot_only](https://huggingface.co/Erlisa/models/tree/main/deepseek_adapter_cot_only)
 
+### How to Load a LoRA Model
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
+
+# Load base model (e.g., LLaMA-3)
+base_model = AutoModelForCausalLM.from_pretrained("unsloth/llama-3-8b-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("Erlisa/finetuned_llama3_question_parsing")
+
+# Load adapter
+model = PeftModel.from_pretrained(base_model, "Erlisa/finetuned_llama3_question_parsing")
+```
+For DeBERTa-based verifier models, use AutoModelForSequenceClassification instead of AutoModelForCausalLM.
 ---
 ## Approaches & Strategies
 
@@ -351,7 +365,7 @@ We experimented with multiple structured reasoning strategies for improving Chai
 - **Hybrid v1** achieves the best *Question_F1* using 3-beam LLaMA-3 + verifier.
 - **Hybrid v4** scores highest in *Statement_F1* with rule-based evidence normalization and dependency tracing.
 - **Hybrid v2** and **Hybrid v3** both offer strong trade-offs, improving *Reasoning_F1* while maintaining question accuracy.
-- **Initial** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
+- **Initial Strategy** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
 - **Reward Model** underperforms in reasoning and alignment despite high question accuracy, suggesting limited reward-model generalization.
 
 
