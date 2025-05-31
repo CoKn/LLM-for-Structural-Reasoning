@@ -51,11 +51,11 @@ This example demonstrates how a single puzzle is converted into the question_par
 2. [Project Structure](#project-structure)
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Project](#running-the-project)
-5. [Fine-Tuned Models](#hugging-face-models)
-6. [Approaches and Strategies](#strategies)
+5. [Fine-Tuned Models on Hugging Face](#fine-tuned-models-on-hugging-face)
+6. [Approaches & Strategies](#approaches--strategies)
 7. [Reproducibility](#reproducibility)
 8. [Team Contributions](#team-contributions)
-9. [Results-Comparative Summary](#results--evaluation)
+9. [Results – Comparative Summary](#results---comparative-summary)
 10. [References](#references)
 
 ---
