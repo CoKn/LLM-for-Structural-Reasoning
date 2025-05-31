@@ -1,5 +1,7 @@
 # LLM-SR: Structured Reasoning with Large Language Models
 
+![ACL 2025 Shared Task](https://img.shields.io/badge/ACL_2025-LLM--SR-blue)
+
 LLM-SR (LLM for Structural Reasoning) is a modular pipeline for transforming free-form logical puzzles and their unstructured chains of thought into rich annotated, machine-readable representations. Given a puzzle (question) and its LLM-generated CoT (cot), LLM-SR produces:
 
 **Question Parsing**: a list of all extracted constraints and conditions from the problem statement.
@@ -223,24 +225,23 @@ pip install -r requirements.txt
 Follow these notebooks in order to replicate the workflow:
 
 1. `0_Data_Generation_and_Transformation.ipynb` – Preprocess the original 700 puzzles  
-2. `1_Preprocessing.ipynb` – Convert datasets into JSONL format for training  
+2. `1_Preprocessing.ipynb` – Convert datasets into JSONL format for training   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hGszU6xuZrnau9ECHst6SPZqJ9gBUbDX)
 3. `2_Baseline.ipynb` – Run weak heuristic or rule-based baselines  
-4. `3_Training.ipynb` – Fine-tune LoRA adapters for Question Parsing and CoT Parsing  
-5. `4_Evaluation.ipynb` – Evaluate using structured metrics (F1 scores)  
-6. `5_Demo.ipynb` – End-to-end prediction + evaluation on the test set   
+4. `3_Training.ipynb` – Fine-tune LoRA adapters for Question Parsing and CoT Parsing   [![Open In Colab](https://colab.research.google.com/drive/1kmxjLC8mpadzNcEnLOU9s4y5SHALHJvf)
+5. `4_Evaluation.ipynb` – Evaluate using structured metrics (F1 scores)   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1wZP-75sZ26amMpPeyP1uKxf-QOLMFdph)
+6. `5_Demo.ipynb` – End-to-end prediction + evaluation on the test set   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Pqafok5gu788MNIYvlRlzYZw_I1-kTit)
 
 Optional Notebooks:
-- `6_DeepSeek_Benchmark.ipynb` – Run benchmark using DeepSeek-Coder  
-- `7_Reward-Based Reranking.ipynb` – Rank CoTs using a reward model  
-- `8_Joint Verifier+Ensemble Scoring.ipynb` – Use DeBERTa verifiers for scoring  
-- `9_Training Two Seperate Verifiers.ipynb` – Fine-tune DeBERTa verifiers independently  
-- `Hybrid_Inference_Strategy_v[1-4].ipynb` – Variants of multi-step hybrid inference pipelines
+- `6_DeepSeek_Benchmark.ipynb` – Run benchmark using DeepSeek-Coder   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1mcjJVCQWOhFGnONIaB6Adc6ju0fVkDpA)
+- `7_Reward-Based Reranking.ipynb` – Rank CoTs using a reward model   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_rlLRyy8MhMAl85Amae4XaPkYoqZDRX1)
+- `8_Joint Verifier+Ensemble Scoring.ipynb` – Use DeBERTa verifiers for scoring   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1RkBXnGYwnllvbPTgXOoGC_6D7x_zCnqa)
+- `9_Training Two Seperate Verifiers.ipynb` – Fine-tune DeBERTa verifiers independently   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1vm5jIjRjzstpBpYFAqZZUWdmBHD6WFOj)
+- `Hybrid_Inference_Strategy_v[1-4].ipynb` – Variants of multi-step hybrid inference pipelines  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1NpY1ubIj5rfXL33zhmGaaExMv1z6ipDG)
 
 To evaluate predictions:
 ```bash
 python utils/eval.py --predictions predictions/final.json --references data/processed/test.json
 ```
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Pqafok5gu788MNIYvlRlzYZw_I1-kTit)
 
 ---
 ## Fine-Tuned Models on Hugging Face
