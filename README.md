@@ -356,6 +356,9 @@ All diagrams are included in the `diagrams/` directory and all the metrics can b
 
 We experimented with multiple structured reasoning strategies for improving Chain-of-Thought (CoT) parsing using LLM decoding, verifier reranking, and rule-based scoring.
 
+### Ablation Study
+We experimented with a two-stage verifier pipeline—first using a QP verifier to rerank question-parsing candidates, then a CoT verifier for chain-of-thought parses. However, this variant consistently degraded downstream performance. As a result, our final inference strategies rely solely on the CoT verifier.  
+
 ### F1 Score Comparison Across Strategies
 
 ![F1 Score Comparison](./metrics/f1_score_comparison.png)
@@ -367,16 +370,16 @@ The chart above visualizes macro F1 scores across the four key evaluation metric
 - **Statement+Evidence F1**: Step correctness with evidence
 - **Reasoning F1**: Overall logical fidelity
 
-
 | Strategy                                  | Question_F1 | Statement_F1 | Statement+Evidence_F1 | Reasoning_F1 |
-|------------------------------------------|-------------|---------------|------------------------|--------------|
-| **Initial** (Beam-only)                 | 0.7526      | 0.4015        | **0.1849**             | **0.1405**   |
-| **Reward Model** (Step scoring only)     | 0.7658      | 0.3660        | 0.1041                 | 0.0439       |
-| **Verifier + Ensemble Reranking**        | 0.7253      | 0.2152        | 0.0953                 | 0.0681       |
-| **Hybrid v1** (3-Beam + Verifier)        | **0.7781**  | 0.4007        | 0.1276                 | 0.0880       |
-| **Hybrid v2** (Beam+Sample + Verifier)   | 0.7658      | 0.4102        | 0.1711                 | 0.1231       |
-| **Hybrid v3** (Evidence Boosting + Clean)| 0.7658      | 0.3990        | **0.1831**             | 0.1129       |
-| **Hybrid v4** (Structure + Heuristics)   | 0.7658      | **0.4185**    | 0.1214                 | 0.0939       |
+|------------------------------------------|-------------|--------------|-----------------------|--------------|
+| **Initial** (Beam-only)                 | 0.7526      | 0.4015       | **0.1849**            | **0.1405**   |
+| **Reward Model** (Step scoring only)     | 0.7658      | 0.3660       | 0.1041                | 0.0439       |
+| **Verifier + Ensemble Reranking**        | 0.7253      | 0.2152       | 0.0953                | 0.0681       |
+| **QP + CP Verifier (Ablation)**         | 0.7321      | 0.3654       | 0.1383                | 0.0946       |
+| **Hybrid v1** (3-Beam + Verifier)        | **0.7781**  | 0.4007       | 0.1276                | 0.0880       |
+| **Hybrid v2** (Beam+Sample + Verifier)   | 0.7658      | 0.4102       | 0.1711                | 0.1231       |
+| **Hybrid v3** (Evidence Boosting + Clean)| 0.7658      | 0.3990       | **0.1831**            | 0.1129       |
+| **Hybrid v4** (Structure + Heuristics)   | 0.7658      | **0.4185**   | 0.1214                | 0.0939       |
 
 ### Highlights
 
@@ -385,6 +388,7 @@ The chart above visualizes macro F1 scores across the four key evaluation metric
 - **Hybrid v2** and **Hybrid v3** both offer strong trade-offs, improving *Reasoning_F1* while maintaining question accuracy.
 - **Initial Strategy** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
 - **Reward Model** underperforms in reasoning and alignment despite high question accuracy, suggesting limited reward-model generalization.
+
 
 
 ## References
