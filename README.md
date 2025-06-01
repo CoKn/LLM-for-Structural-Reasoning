@@ -197,6 +197,7 @@ This approach enables controllable and explainable reasoning, supporting future 
 ├── Hybrid_Inference_Strategy_v2.ipynb       # Beam + sampling + verifier reranking
 ├── Hybrid_Inference_Strategy_v3.ipynb       # CoT cleaning improvements
 ├── Hybrid_Inference_Strategy_v4.ipynb       # Structure-aware scoring with weights
+├── Hybrid_Inference_Strategy_Ablation.ipynb  # Ablation Study using QP+CoT Verifiers
 ```
 
 ---
