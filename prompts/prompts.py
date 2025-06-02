@@ -111,60 +111,59 @@ Generate puzzles with complete problem statements and properly parsed constraint
 """
 
 solution_generation_prompt = """
-You are provided with logical reasoning puzzles that need to be solved. For each puzzle, you must generate the chain of thought reasoning and parse it into structured steps. At the end I want to have a list of completely solved puzzles.
+You are provided with a list of logical reasoning puzzles that need to be solved. You must generate the chain of thought reasoning and parse it into structured steps for EVERY SINGLE PUZZLE in the provided list.
 
 ## Your Task:
-Given puzzle questions with their constraints, provide:
-1. **cot**: Step-by-step logical reasoning explaining how to reach the answer
-2. **cot_parsing**: Structured breakdown of each reasoning step with verification
+Given a list of puzzle questions with their constraints, you must:
+1. Process EACH puzzle in the input list
+2. Add the missing "cot" and "cot_parsing" fields to EVERY puzzle
+3. Return the complete list with all puzzles solved
 
-## Required JSON Structure:
-For each puzzle, add the missing "cot" and "cot_parsing" fields to complete this structure:
+## Critical Instructions:
+- SOLVE ALL PUZZLES provided in the input list
+- Maintain the exact same list structure 
+- Do not skip any puzzles
+- Preserve all existing fields (question, question_parsing, id, sel_idx, answer)
+
+## Required Output Format:
+Return the complete JSON list with all puzzles solved:
+
+```json
 [
     {
-        "question": "[existing]",
-        "question_parsing": "[existing]",
-        "id": "[existing]", 
-        "sel_idx": "[existing]", 
-        "answer": "[lowercase letter: a, b, c, or d]",
-        "cot": "[Step-by-step logical reasoning explaining how to reach the answer]",
+        "question": "[from input]",
+        "question_parsing": "[from input]",
+        "id": "[from input]", 
+        "sel_idx": "[from input]", 
+        "answer": "[from input]",
+        "cot": "[NEW: Step-by-step logical reasoning explaining how to reach the answer]",
         "cot_parsing": [
             {
                 "statement": "[A specific logical step or conclusion]",
                 "evidence": "[The conditions/rules that support this statement]", 
                 "Verification": "[true/false - whether this reasoning step is logically sound]"
-            },
-            {
-                "statement": "[Next logical step]",
-                "evidence": "[Supporting conditions/rules]",
-                "Verification": "[true/false]"
             }
-        ],
+        ]
     },
     {
-        "question": "[existing]",
-        "question_parsing": "[existing]",
-        "id": "[existing]", 
-        "sel_idx": "[existing]", 
-        "answer": "[lowercase letter: a, b, c, or d]",
-        "cot": "[Step-by-step logical reasoning explaining how to reach the answer]",
+        "question": "[from input - SECOND PUZZLE]",
+        "question_parsing": "[from input - SECOND PUZZLE]",
+        "id": "[from input - SECOND PUZZLE]", 
+        "sel_idx": "[from input - SECOND PUZZLE]", 
+        "answer": "[from input - SECOND PUZZLE]",
+        "cot": "[NEW: Step-by-step reasoning for SECOND PUZZLE]",
         "cot_parsing": [
             {
-                "statement": "[A specific logical step or conclusion]",
-                "evidence": "[The conditions/rules that support this statement]", 
-                "Verification": "[true/false - whether this reasoning step is logically sound]"
-            },
-            {
-                "statement": "[Next logical step]",
-                "evidence": "[Supporting conditions/rules]",
+                "statement": "[Logical step for SECOND PUZZLE]",
+                "evidence": "[Supporting conditions for SECOND PUZZLE]", 
                 "Verification": "[true/false]"
             }
-        ],
+        ]
     }
 ]
 Reasoning Requirements:
 
-Work through each constraint systematically
+Work through each constraint systematically for EACH puzzle
 Show how the given scenario triggers specific rules
 Demonstrate logical deductions step by step
 Verify each reasoning step is sound
@@ -177,6 +176,5 @@ Evidence should reference specific conditions from the puzzle
 Verification should be "true" for sound logic, "false" for flawed reasoning
 Include 3-6 parsing steps depending on complexity
 
-Please solve the provided puzzles by adding the complete reasoning components.
+IMPORTANT: Process every puzzle in the input list. Your output must contain the same number of solved puzzles as provided in the input.
 """
-
