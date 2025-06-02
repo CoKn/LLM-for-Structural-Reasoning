@@ -82,7 +82,6 @@ You are tasked with generating logical reasoning puzzles that involve constraint
             "[Include each logical rule]",
             "[Include the specific scenario being asked about]"
         ],
-        "answer": "[lowercase letter: a, b, c, or d]"
     },
     {
         "question": "[Full problem statement with all conditions and the question]",
@@ -92,7 +91,6 @@ You are tasked with generating logical reasoning puzzles that involve constraint
             "[Include each logical rule]", 
             "[Include the specific scenario being asked about]"
         ],
-        "answer": "[lowercase letter: a, b, c, or d]"
     }
 ]
 
@@ -109,39 +107,61 @@ You are tasked with generating logical reasoning puzzles that involve constraint
 - Objects placed in different containers/rooms
 - Participants in different activities/events
 
-Generate puzzles with complete problem statements and properly parsed constraints, but do not include the reasoning steps yet.
+Generate puzzles with complete problem statements and properly parsed constraints, but do not include the reasoning steps. Also do not answer the question.
 """
 
 solution_generation_prompt = """
-You are provided with logical reasoning puzzles that need to be solved. For each puzzle, you must generate the chain of thought reasoning and parse it into structured steps.
+You are provided with logical reasoning puzzles that need to be solved. For each puzzle, you must generate the chain of thought reasoning and parse it into structured steps. At the end I want to have a list of completely solved puzzles.
 
 ## Your Task:
 Given puzzle questions with their constraints, provide:
 1. **cot**: Step-by-step logical reasoning explaining how to reach the answer
 2. **cot_parsing**: Structured breakdown of each reasoning step with verification
 
-## Required Output Format:
+## Required JSON Structure:
 For each puzzle, add the missing "cot" and "cot_parsing" fields to complete this structure:
-
-```json
-{
-    "question": "[existing]",
-    "question_parsing": "[existing]", 
-    "answer": "[existing]",
-    "cot": "[Step-by-step logical reasoning explaining how to reach the answer]",
-    "cot_parsing": [
-        {
-            "statement": "[A specific logical step or conclusion]",
-            "evidence": "[The conditions/rules that support this statement]", 
-            "Verification": "[true/false - whether this reasoning step is logically sound]"
-        },
-        {
-            "statement": "[Next logical step]",
-            "evidence": "[Supporting conditions/rules]",
-            "Verification": "[true/false]"
-        }
-    ]
-}
+[
+    {
+        "question": "[existing]",
+        "question_parsing": "[existing]",
+        "id": "[existing]", 
+        "sel_idx": "[existing]", 
+        "answer": "[lowercase letter: a, b, c, or d]",
+        "cot": "[Step-by-step logical reasoning explaining how to reach the answer]",
+        "cot_parsing": [
+            {
+                "statement": "[A specific logical step or conclusion]",
+                "evidence": "[The conditions/rules that support this statement]", 
+                "Verification": "[true/false - whether this reasoning step is logically sound]"
+            },
+            {
+                "statement": "[Next logical step]",
+                "evidence": "[Supporting conditions/rules]",
+                "Verification": "[true/false]"
+            }
+        ],
+    },
+    {
+        "question": "[existing]",
+        "question_parsing": "[existing]",
+        "id": "[existing]", 
+        "sel_idx": "[existing]", 
+        "answer": "[lowercase letter: a, b, c, or d]",
+        "cot": "[Step-by-step logical reasoning explaining how to reach the answer]",
+        "cot_parsing": [
+            {
+                "statement": "[A specific logical step or conclusion]",
+                "evidence": "[The conditions/rules that support this statement]", 
+                "Verification": "[true/false - whether this reasoning step is logically sound]"
+            },
+            {
+                "statement": "[Next logical step]",
+                "evidence": "[Supporting conditions/rules]",
+                "Verification": "[true/false]"
+            }
+        ],
+    }
+]
 Reasoning Requirements:
 
 Work through each constraint systematically
