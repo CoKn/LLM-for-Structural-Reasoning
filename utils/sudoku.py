@@ -77,6 +77,8 @@ class SudokuEnvironment:
             If apply_changes=False: list of deduction explanations
         """
         deductions = []
+        deduction_statement = []
+        deduction_evidence = []
         changes_made = False
         found_deductions = set() if unique_only else None  # Track (row, col, value) to avoid duplicates
 
@@ -95,12 +97,17 @@ class SudokuEnvironment:
                                 iteration_changes = True
                             else:
                                 deduction_key = (row, col, value)
-                                if deduction_key not in found_deductions:
-                                    found_deductions.add(deduction_key)
+                                if not unique_only or deduction_key not in found_deductions:
+                                    if unique_only:
+                                        found_deductions.add(deduction_key)
+
+                                    # Generate calculation explanation
+                                    calc_explanation = self._get_single_candidate_calculation(row, col, value)
                                     deductions.append(
-                                        f"Position ({row},{col}) must be {value} "
-                                        f"(only valid value)"
+                                        f"Position ({row},{col}) must be {value} (only valid value {calc_explanation})"
                                     )
+                                    deduction_statement.append( f"Position ({row},{col}) must be {value}")
+                                    deduction_evidence.append(f"Only valid value{calc_explanation}")
 
             # Hidden singles
             units = (
@@ -126,13 +133,18 @@ class SudokuEnvironment:
                                 iteration_changes = True
                             else:
                                 deduction_key = (r, c, value)
-                                if deduction_key not in found_deductions:
-                                    found_deductions.add(deduction_key)
+                                if not unique_only or deduction_key not in found_deductions:
+                                    if unique_only:
+                                        found_deductions.add(deduction_key)
+
+                                    # Generate calculation explanation
                                     unit_desc = self._get_unit_description(unit_type, unit_id)
+                                    calc_explanation = self._get_hidden_single_calculation(unit_type, unit_id, value)
                                     deductions.append(
-                                        f"Position ({r},{c}) must be {value} "
-                                        f"(only position in {unit_desc} for {value})"
+                                        f"Position ({r},{c}) must be {value} (only position in {unit_desc} for {value}{calc_explanation})"
                                     )
+                                    deduction_statement.append(f"Position ({r},{c}) must be {value}")
+                                    deduction_evidence.append(f"Only position in {unit_desc} for {value}{calc_explanation})")
 
             if apply_changes:
                 if iteration_changes:
@@ -142,7 +154,7 @@ class SudokuEnvironment:
             else:
                 break
 
-        return changes_made if apply_changes else deductions
+        return changes_made if apply_changes else deductions, deduction_statement, deduction_evidence
 
     def _get_unit_description(self, unit_type, unit_id):
         """Get human-readable description of a unit."""
@@ -154,13 +166,105 @@ class SudokuEnvironment:
             block_row, block_col = unit_id
             return f"block ({block_row // 2},{block_col // 2})"
 
+    def _get_single_candidate_calculation(self, row, col, value):
+        """Generate calculation explanation for single candidate deductions."""
+        # Get numbers present in row, column, and block
+        row_numbers = set(self.grid[row]) - {0}
+        col_numbers = set(self.grid[r][col] for r in range(4)) - {0}
+
+        block_row, block_col = (row // 2) * 2, (col // 2) * 2
+        block_numbers = set()
+        for r in range(block_row, block_row + 2):
+            for c in range(block_col, block_col + 2):
+                if self.grid[r][c] != 0:
+                    block_numbers.add(self.grid[r][c])
+
+        # Combine all constraints
+        all_used = row_numbers | col_numbers | block_numbers
+        if all_used:
+            used_list = sorted(list(all_used))
+            used_sum = sum(used_list)
+            calculation = f" because 10 - {' - '.join(map(str, used_list))} = {10 - used_sum}"
+        else:
+            calculation = ""
+
+        return calculation
+
+    def _get_hidden_single_calculation(self, unit_type, unit_id, value):
+        """Generate calculation explanation for hidden single deductions."""
+        cells = self.get_unit_cells(unit_type, unit_id)
+
+        # Get numbers already present in the unit
+        unit_numbers = set()
+        empty_positions = []
+        for r, c in cells:
+            if self.grid[r][c] != 0:
+                unit_numbers.add(self.grid[r][c])
+            else:
+                empty_positions.append((r, c))
+
+        # Find which empty positions can contain the value
+        valid_positions_for_value = []
+        blocked_positions = []
+
+        for r, c in empty_positions:
+            if value in self.get_valid_numbers(r, c):
+                valid_positions_for_value.append((r, c))
+            else:
+                # Find what's blocking this position for this value
+                blocking_constraints = []
+
+                # Check row constraint
+                if value in set(self.grid[r]) - {0}:
+                    blocking_constraints.append(f"row {r}")
+
+                # Check column constraint
+                if value in set(self.grid[row][c] for row in range(4)) - {0}:
+                    blocking_constraints.append(f"col {c}")
+
+                # Check block constraint
+                block_row, block_col = (r // 2) * 2, (c // 2) * 2
+                block_values = set()
+                for br in range(block_row, block_row + 2):
+                    for bc in range(block_col, block_col + 2):
+                        if self.grid[br][bc] != 0:
+                            block_values.add(self.grid[br][bc])
+                if value in block_values:
+                    blocking_constraints.append(f"block ({block_row // 2},{block_col // 2})")
+
+                if blocking_constraints:
+                    blocked_positions.append(f"({r},{c}) blocked by {', '.join(blocking_constraints)}")
+
+        # Build explanation
+        explanation_parts = []
+
+        # Show what's missing from this unit
+        if unit_numbers:
+            used_list = sorted(list(unit_numbers))
+            missing_numbers = sorted(list(set(range(1, 5)) - unit_numbers))
+            explanation_parts.append(f"missing {', '.join(map(str, missing_numbers))} from unit")
+
+        # Show why other positions can't contain this value
+        if blocked_positions:
+            explanation_parts.append(f"{value} can't go in {'; '.join(blocked_positions)}")
+
+        if explanation_parts:
+            return f" because " + "; ".join(explanation_parts)
+        else:
+            return ""
+
     def make_deductions(self):
         """Apply logical deductions to fill cells."""
         return self.find_deductions(apply_changes=True)
 
-    def get_explicit_deductions(self):
-        """Get explanations of possible deductions without applying them."""
-        return self.find_deductions(apply_changes=False)
+    def get_explicit_deductions(self, unique_only=True):
+        """Get explanations of possible deductions without applying them.
+
+        Args:
+            unique_only: If True, return only unique cell assignments.
+                        If False, return all reasoning paths.
+        """
+        return self.find_deductions(apply_changes=False, unique_only=unique_only)
 
     def solve(self):
         """Solve the puzzle using backtracking."""
@@ -247,8 +351,8 @@ if __name__ == "__main__":
     if sudoku.create_puzzle(difficulty='easy'):
         sudoku.display()
 
-        print("\nLogical deductions:")
-        deductions = sudoku.get_explicit_deductions()
+        print("Logical deductions:")
+        deductions = sudoku.get_explicit_deductions(unique_only=True)
         for d in deductions:
             print(f"- {d}")
 
