@@ -1,0 +1,6 @@
+{
+    "Question_Macro_F1": 0.7253,
+    "Statement_Macro_F1": 0.2152,
+    "Statement_Evidence_Macro_F1": 0.0953,
+    "Reasoning_F1": 0.0681
+}

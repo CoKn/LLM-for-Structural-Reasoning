@@ -1,5 +1,9 @@
 # LLM-SR: Structured Reasoning with Large Language Models
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Pqafok5gu788MNIYvlRlzYZw_I1-kTit)
+[![ACL 2025 Shared Task](https://img.shields.io/badge/ACL_2025-LLM--SR-blue)](https://xllms.github.io/LLMSR/)
+
+
 LLM-SR (LLM for Structural Reasoning) is a modular pipeline for transforming free-form logical puzzles and their unstructured chains of thought into rich annotated, machine-readable representations. Given a puzzle (question) and its LLM-generated CoT (cot), LLM-SR produces:
 
 **Question Parsing**: a list of all extracted constraints and conditions from the problem statement.
@@ -51,17 +55,18 @@ This example demonstrates how a single puzzle is converted into the question_par
 2. [Project Structure](#project-structure)
 3. [Setup Instructions](#setup-instructions)
 4. [Running the Project](#running-the-project)
-5. [Approaches and Strategies](#running-the-project)
-6. [Reproducibility](#reproducibility)
-7. [Team Contributions](#team-contributions)
-8. [Results-Comparative Summary](#results--evaluation)
-9. [References](#references)
+5. [Fine-Tuned Models on Hugging Face](#fine-tuned-models-on-hugging-face)
+6. [Approaches & Strategies](#approaches--strategies)
+7. [Reproducibility](#reproducibility)
+8. [Team Contributions](#team-contributions)
+9. [Results - Comparative Summary](#results---comparative-summary)
+10. [References](#references)
 
 ---
 
 ## Project Description
 
-This project was developed for the [ACL 2025 Shared Task: LLM for Structural Reasoning (LLM-SR)](https://xreasoning.github.io/), which aims to extract interpretable, structured reasoning steps from natural language questions and chain-of-thoughts (CoT). The task focuses on producing two structured outputs:
+This project was developed for the [ACL 2025 Shared Task: LLM for Structural Reasoning (LLM-SR)](https://xllms.github.io/LLMSR/), which aims to extract interpretable, structured reasoning steps from natural language questions and chain-of-thoughts (CoT). The task focuses on producing two structured outputs:
 
 - **`question_parsing`**: a list of logical constraints extracted from the question text.  
 - **`cot_parsing`**: a step-by-step breakdown of the CoT, where each step includes a `statement`, `evidence`, and a boolean `Verification` flag.
@@ -165,52 +170,50 @@ This approach enables controllable and explainable reasoning, supporting future 
 ```
 .
 ├── data/
-│   ├── raw/                          # Raw logical puzzles
-│   └── processed/                    # Preprocessed training/test data
-├── metrics/                          # Evaluation results (JSON metrics)
-├── predictions/                      # Final prediction JSON files
-├── synthetic_data_code/              # Logic puzzle generation scripts
-├── utils/                            # Evaluation scripts & helpers
+│   ├── raw/                          # Raw logical puzzles (e.g., LogiQA)
+│   └── processed/                    # Preprocessed train/test datasets
+├── diagrams/                         # draw.io source files (editable)
+├── images/                           # Exported diagram visuals for documentation
+├── metrics/                          # Evaluation results (JSON + markdown)
+│   ├── *.json                        # Per-strategy evaluation metrics
+│   └── evaluation_table.md           # Summary comparison table
+├── predictions/                      # Final test predictions from inference
+├── utils/                            # Helper scripts (e.g., evaluation)
 │   └── eval.py
-├── experimentation/                 # (Optional) Early experiments / Azure adapter
-├── models/                           # Model checkpoints and adapters
-│   ├── finetuned_llama3_question_parsing/
-│   └── finetuned_llama3_cot_parsing/
 ├── .gitignore
-├── requirements.txt                 # Python dependencies
-├── README.md
-├── 1_Preprocessing.ipynb            # Generate training JSONL files from 700dataset
-├── 2_Baseline.ipynb                 # Baseline model and heuristics
-├── 3_Training.ipynb                 # Fine-tuning QP and CoT models
-├── 4_Evaluation.ipynb               # Evaluation metrics and analysis
-├── 5_Demo.ipynb                     # End-to-end demo on test set
-├── 6_DeepSeek_Benchmark.ipynb       # (Optional) DeepSeek-Coder baseline
-├── 7_Reward-Based Reranking.ipynb   # CoT reranking with reward model
-├── 8_Joint Verifier+Ensemble Scoring.ipynb # QP+CoT reranking with DeBERTa verifiers
-├── 9_Training Two Seperate Verifiers.ipynb # Train separate verifiers for QP/CoT
-├── Hybrid_Inference_Strategy_v1.ipynb     # Basic hybrid inference
-├── Hybrid_Inference_Strategy_v2.ipynb     # Beam + sampling + verifier
-├── Hybrid_Inference_Strategy_v3.ipynb     # Enhanced CoT cleaning
-├── Hybrid_Inference_Strategy_v4.ipynb     # Structure-aware scoring
+├── requirements.txt                  # Project dependencies
+├── README.md                         # Project overview and instructions
+├── 0_Data_Generation_and_Transformation.ipynb  # Preprocessing 700 dataset
+├── 1_Preprocessing.ipynb             # Preprocessing pipeline
+├── 2_Baseline.ipynb                  # Weak baselines for comparison
+├── 3_Training.ipynb                  # Fine-tuning LoRA adapters
+├── 4_Evaluation.ipynb                # Metric reporting + analysis
+├── 5_Demo.ipynb                      # End-to-end test demo
+├── 6_DeepSeek_Benchmark.ipynb        # DeepSeek-Coder baseline
+├── 7_Reward-Based Reranking.ipynb    # Reranking with reward model
+├── 8_Joint Verifier+Ensemble Scoring.ipynb  # QP + CoT DeBERTa Verifiers
+├── 9_Training Two Seperate Verifiers.ipynb  # Train separate verifiers
+├── Hybrid_Inference_Strategy_v1.ipynb       # Simple hybrid strategy
+├── Hybrid_Inference_Strategy_v2.ipynb       # Beam + sampling + verifier reranking
+├── Hybrid_Inference_Strategy_v3.ipynb       # CoT cleaning improvements
+├── Hybrid_Inference_Strategy_v4.ipynb       # Structure-aware scoring with weights
+├── Hybrid_Inference_Strategy_Ablation.ipynb  # Ablation Study using QP+CoT Verifiers
 ```
 
 ---
 ## Setup Instructions
 
-> **Note**  
-> This is a template section. You can add warnings, tips, or other notices using this format: `[!NOTE]`, `[!WARNING]`, `[!IMPORTANT]`.
-
 ### Clone Repository
 ```bash
-git clone [repository-url]
-cd [repository-folder]
+git clone https://github.com/CoKn/LLM-for-Structural-Reasoning.git
+cd LLM-for-Structural-Reasoning
 ```
 
 ### Create Environment
 ```bash
 python -m venv venv
-source venv/bin/activate  # Unix or MacOS
-venv\Scripts\activate     # Windows
+source venv/bin/activate     # For Mac/Linux
+venv\Scripts\activate        # For Windows
 ```
 
 ### Install Dependencies
@@ -222,23 +225,61 @@ pip install -r requirements.txt
 
 ## Running the Project
 
-Follow these notebooks in order:
+Follow these notebooks in order to replicate the workflow:
 
-1. `1_Preprocessing.ipynb` – Data preprocessing and JSONL generation  
-2. `2_Baseline.ipynb` – Establishing a rule-based or weak baseline  
-3. `3_Training.ipynb` – Fine-tuning models using LoRA  
-4. `4_Evaluation.ipynb` – Structured evaluation with official metrics  
-5. `5_Demo.ipynb` – Full prediction and post-processing on new test data
+1. `0_Data_Generation_and_Transformation.ipynb` – Preprocess the original 700 puzzles  
+2. `1_Preprocessing.ipynb` – Convert datasets into JSONL format for training  
+3. `2_Baseline.ipynb` – Run weak heuristic or rule-based baselines  
+4. `3_Training.ipynb` – Fine-tune LoRA adapters for Question Parsing and CoT Parsing  
+5. `4_Evaluation.ipynb` – Evaluate using structured metrics (F1 scores)   
+6. `5_Demo.ipynb` – End-to-end prediction + evaluation on the test set   
 
-You can also run utility scripts from the `utils/` directory (e.g., `eval.py`).
+Optional Notebooks:
+- `6_DeepSeek_Benchmark.ipynb` – Run benchmark using DeepSeek-Coder   
+- `7_Reward-Based Reranking.ipynb` – Rank CoTs using a reward model  
+- `8_Joint Verifier+Ensemble Scoring.ipynb` – Use DeBERTa verifiers for scoring   
+- `9_Training Two Seperate Verifiers.ipynb` – Fine-tune DeBERTa verifiers independently  
+- `Hybrid_Inference_Strategy_v[1-4].ipynb` – Variants of multi-step hybrid inference pipelines
+  
+To evaluate predictions:
+```bash
+python utils/eval.py --predictions predictions/final.json --references data/processed/test.json
+```
 
 ---
+## Fine-Tuned Models on Hugging Face
 
+We fine-tuned all models used in this project from publicly available LLMs (e.g., LLaMA-3, DeBERTa, DeepSeek) using **LoRA adapters** and our synthetic dataset. The trained adapters are hosted on the Hugging Face Hub under the author profile [Erlisa](https://huggingface.co/Erlisa), and can be used for inference or further fine-tuning.
+
+- [finetuned_llama3_question_parsing](https://huggingface.co/Erlisa/models/tree/main/finetuned_llama3_question_parsing)
+- [finetuned_llama3_cot_parsing](https://huggingface.co/Erlisa/models/tree/main/finetuned_llama3_cot_parsing)
+- [deberta-qparse-verifier](https://huggingface.co/Erlisa/models/tree/main/deberta-qparse-verifier)
+- [deberta-cotparse-verifier](https://huggingface.co/Erlisa/models/tree/main/deberta-cotparse-verifier)
+- [deberta3-verifier-final](https://huggingface.co/Erlisa/models/tree/main/deberta3-verifier-final)
+- [deepseek_adapter_qp_only](https://huggingface.co/Erlisa/models/tree/main/deepseek_adapter_qp_only)
+- [deepseek_adapter_cot_only](https://huggingface.co/Erlisa/models/tree/main/deepseek_adapter_cot_only)
+
+### How to Load a LoRA Model
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
+
+# Load base model (e.g., LLaMA-3)
+base_model = AutoModelForCausalLM.from_pretrained("unsloth/llama-3-8b-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("Erlisa/finetuned_llama3_question_parsing")
+
+# Load adapter
+model = PeftModel.from_pretrained(base_model, "Erlisa/finetuned_llama3_question_parsing")
+```
+For DeBERTa-based verifier models, use AutoModelForSequenceClassification instead of AutoModelForCausalLM.
+
+---
 ## Approaches & Strategies
 
 Throughout the project, we experimented with multiple inference pipelines to improve structured reasoning quality. Below is a brief summary of the main strategies:
 
-### 1. Baseline LLaMA-3 Parsing
+### 1. Initial LLaMA-3 Parsing
 
 - **QP Stage:** Single LLaMA-3 model extracts constraints via in-context prompting.
 - **CoT Stage:** LLaMA-3 parses chain-of-thought into structured reasoning steps.
@@ -280,19 +321,16 @@ Throughout the project, we experimented with multiple inference pipelines to imp
   - `Statement_Macro_F1`: 0.4185  
   - `Statement_Evidence_F1`: 0.1214
 
-
-All diagrams and results are included in the `diagrams/` directory
+All diagrams are included in the `diagrams/` directory and all the metrics can be found in the `metrics/` directory
 
 ---
 
-
-
 ## Reproducibility
 
-- **Random seeds:** All training scripts use fixed seeds for reproducibility.  
-- **Environment:** Full environment versions are listed in `requirements.txt`.  
-- **Data:** Synthetic dataset and formatting logic is provided in `synthetic_data_code/`.  
-- **Model Checkpoints:** Saved in the `models/` directory, organized by subtask and strategy.
+- **Random Seeds:** All training scripts use fixed seeds to ensure consistent results across runs.  
+- **Environment:** All dependencies and versions are listed in `requirements.txt`.  
+- **Data:** Raw and processed datasets are provided in the `data/` directory. Synthetic generation logic is available in `synthetic_data_code/`.  
+- **Models:** Fine-tuned models are hosted on [Hugging Face Hub](https://huggingface.co/Erlisa/models/tree/main). See the "Fine-Tuned Models on Hugging Face" section above for links.
 
 ---
 
@@ -303,13 +341,13 @@ All diagrams and results are included in the `diagrams/` directory
 | Erlisa Lokaj     | Data preprocessing, fine-tuning QP/CoT Model, Inference          |
 | Erlisa Lokaj     | DeepSeek training and benchmark comparison                       |
 | Erlisa Lokaj     | Trained a joint DeBERTa verifier and compared results            |
-| Erlisa Lokaj     | Trained two seperate DeBERTa verfiers for QP and CoT             |
+| Erlisa Lokaj     | Trained two seperate DeBERTa verifiers for QP and CoT            |
 | Erlisa Lokaj     | Reward Model Based Reranking Strategy                            |
 | Erlisa Lokaj     | Hybrid Inference Strategy v1                                     |
 | Erlisa Lokaj     | Hybrid Inference Strategy v2                                     |
 | Erlisa Lokaj     | Hybrid Inference Strategy v3                                     |
 | Erlisa Lokaj     | Hybrid Inference Strategy v4                                     |
-| Erlisa Lokaj     | Diagrams Creations                                               |
+| Erlisa Lokaj     | Diagrams Creations, Comparison Plot, Github CleanUp              |
 
 
 
@@ -317,25 +355,41 @@ All diagrams and results are included in the `diagrams/` directory
 
 ## Results - Comparative Summary
 
-We experimented with multiple structured reasoning strategies for improving Chain-of-Thought (CoT) parsing using LLM decoding, verifier reranking, and rule-based scoring. The table below summarizes the results of our best inference pipelines.
+We experimented with multiple structured reasoning strategies for improving Chain-of-Thought (CoT) parsing using LLM decoding, verifier reranking, and rule-based scoring.
+
+### Ablation Study
+We experimented with a two-stage verifier pipeline—first using a QP verifier to rerank question-parsing candidates, then a CoT verifier for chain-of-thought parses. However, this variant consistently degraded downstream performance. As a result, our final inference strategies rely solely on the CoT verifier.  
+
+### F1 Score Comparison Across Strategies
+
+![F1 Score Comparison](./metrics/f1_score_comparison.png)
+
+The chart above visualizes macro F1 scores across the four key evaluation metrics:
+
+- **Question F1**: Accuracy of constraint extraction
+- **Statement F1**: Coverage of reasoning steps
+- **Statement+Evidence F1**: Step correctness with evidence
+- **Reasoning F1**: Overall logical fidelity
 
 | Strategy                                  | Question_F1 | Statement_F1 | Statement+Evidence_F1 | Reasoning_F1 |
-|------------------------------------------|-------------|---------------|------------------------|--------------|
-| **Baseline** (Beam-only)                 | 0.7526      | 0.4015        | **0.1849**             | **0.1405**   |
-| **Reward Model** (Step scoring only)     | 0.7658      | 0.3660        | 0.1041                 | 0.0439       |
-| **Verifier + Ensemble Reranking**        | 0.7253      | 0.2152        | 0.0953                 | 0.0681       |
-| **Hybrid v1** (3-Beam + Verifier)        | **0.7781**  | 0.4007        | 0.1276                 | 0.0880       |
-| **Hybrid v2** (Beam+Sample + Verifier)   | 0.7658      | 0.4102        | 0.1711                 | 0.1231       |
-| **Hybrid v3** (Evidence Boosting + Clean)| 0.7658      | 0.3990        | **0.1831**             | 0.1129       |
-| **Hybrid v4** (Structure + Heuristics)   | 0.7658      | **0.4185**    | 0.1214                 | 0.0939       |
+|------------------------------------------|-------------|--------------|-----------------------|--------------|
+| **Initial** (Beam-only)                 | 0.7526      | 0.4015       | **0.1849**            | **0.1405**   |
+| **Reward Model** (Step scoring only)     | 0.7658      | 0.3660       | 0.1041                | 0.0439       |
+| **Verifier + Ensemble Reranking**        | 0.7253      | 0.2152       | 0.0953                | 0.0681       |
+| **QP + CP Verifier (Ablation)**         | 0.7321      | 0.3654       | 0.1383                | 0.0946       |
+| **Hybrid v1** (3-Beam + Verifier)        | **0.7781**  | 0.4007       | 0.1276                | 0.0880       |
+| **Hybrid v2** (Beam+Sample + Verifier)   | 0.7658      | 0.4102       | 0.1711                | 0.1231       |
+| **Hybrid v3** (Evidence Boosting + Clean)| 0.7658      | 0.3990       | **0.1831**            | 0.1129       |
+| **Hybrid v4** (Structure + Heuristics)   | 0.7658      | **0.4185**   | 0.1214                | 0.0939       |
 
 ### Highlights
 
 - **Hybrid v1** achieves the best *Question_F1* using 3-beam LLaMA-3 + verifier.
 - **Hybrid v4** scores highest in *Statement_F1* with rule-based evidence normalization and dependency tracing.
 - **Hybrid v2** and **Hybrid v3** both offer strong trade-offs, improving *Reasoning_F1* while maintaining question accuracy.
-- **Baseline** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
+- **Initial Strategy** still remains strongest in *Reasoning_F1* and overall evidence quality, showing LLMs alone can encode deep logical reasoning.
 - **Reward Model** underperforms in reasoning and alignment despite high question accuracy, suggesting limited reward-model generalization.
+
 
 
 ## References
