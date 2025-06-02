@@ -1,0 +1,43 @@
+{
+  "question": "Five students, A, B, C, D, and E, are each going on a school trip to one of two locations: the zoo or the aquarium. The following conditions apply: 1) If A goes to the zoo, then B must go to the aquarium. 2) C and D go to different locations. 3) If E goes to the aquarium, then D must also go to the aquarium. 4) A and C must go to the same location. Question: If B goes to the zoo, which of the following must be true? a) A goes to the aquarium b) D goes to the zoo c) C goes to the zoo d) E goes to the aquarium",
+  "question_parsing": [
+    "Entities: A, B, C, D, E",
+    "Categories: Zoo, Aquarium",
+    "If A goes to the zoo, then B must go to the aquarium.",
+    "C and D go to different locations.",
+    "If E goes to the aquarium, then D must also go to the aquarium.",
+    "A and C must go to the same location.",
+    "B goes to the zoo."
+  ],
+  "id": 752330,
+  "sel_idx": 752330,
+  "answer": "a) A goes to the aquarium",
+  "cot": "1. If B goes to the zoo, then by condition 1, A must go to the aquarium, because if A goes to the zoo, B must go to the aquarium, which contradicts B going to zoo. 2. If A goes to the aquarium, by condition 4, C must also go to the aquarium. 3. Applying condition 2, since C goes to the aquarium, D must go to the zoo (as C and D go to different locations). 4. There are no specific conditions for E with the given information and E's location could be either zoo or aquarium. Thus, the only necessary conclusion is that A goes to the aquarium.",
+  "cot_parsing": [
+    {
+      "statement": "B goes to the zoo.",
+      "evidence": "Given in the question scenario.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A must go to the aquarium.",
+      "evidence": "If B is at the zoo, A cannot be at the zoo due to the given condition 1.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C goes to the aquarium.",
+      "evidence": "A and C must go to the same location (condition 4), and A is determined to be at the aquarium.",
+      "Verification": "true"
+    },
+    {
+      "statement": "D goes to the zoo.",
+      "evidence": "C goes to the aquarium, so D must go to a different location (condition 2).",
+      "Verification": "true"
+    },
+    {
+      "statement": "E's location is undetermined.",
+      "evidence": "Conditions provide no constraints on E's location when B is at the zoo.",
+      "Verification": "true"
+    }
+  ]
+}

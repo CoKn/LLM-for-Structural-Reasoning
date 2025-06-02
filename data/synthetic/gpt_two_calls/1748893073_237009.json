@@ -1,0 +1,37 @@
+{
+  "question": "Five students, A, B, C, D, and E, must each participate in one of two workshops: Art or Science. The assignments are subject to the following conditions: 1) If A attends the Art workshop, then B must attend the Science workshop. 2) Either C or D must attend the Art workshop, but not both. 3) If E attends the Science workshop, then D must attend the Art workshop. 4) B and C cannot attend the same workshop. Given that A attends the Art workshop, which student must attend the Science workshop? (a) C (b) D (c) E (d) A",
+  "question_parsing": [
+    "Five students, A, B, C, D, and E must attend either Art or Science workshop.",
+    "If A attends Art, then B must attend Science.",
+    "Either C or D must attend Art, but not both.",
+    "If E attends Science, then D must attend Art.",
+    "B and C cannot attend the same workshop.",
+    "A attends the Art workshop."
+  ],
+  "id": 237009,
+  "sel_idx": 237009,
+  "answer": "(a) C",
+  "cot": "Given that A attends the Art workshop, B must attend the Science workshop. Since either C or D must attend the Art workshop, and B and C cannot attend the same workshop, C must attend the Art workshop. D must, therefore, attend the Science workshop. However, since the answer requires identifying a single student who must attend Science, any check shows that D attending Science also satisfies B being on Science as they cannot be on the same side as A, indicating C's attendance holds the constraints 'B and C cannot attend the same workshop'. Therefore, C is in Art, only allowing D for Science in all scenarios.",
+  "cot_parsing": [
+    {
+      "statement": "A attends the Art workshop, so B must attend the Science workshop.",
+      "evidence": "Rule 1: If A attends Art, then B must attend Science.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Either C or D must attend the Art workshop, not both.",
+      "evidence": "Rule 2: This shows C or D for Art.",
+      "Verification": "true"
+    },
+    {
+      "statement": "B and C cannot attend the same workshop.",
+      "evidence": "Rule 4: This prevents C joining B in Science.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C attends Art and D attends Science.",
+      "evidence": "Overlap of rules confirms D in Science.",
+      "Verification": "true"
+    }
+  ]
+}

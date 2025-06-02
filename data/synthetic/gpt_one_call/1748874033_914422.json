@@ -1,0 +1,23 @@
+{
+  "question": "Seven contestants: P, Q, R, S, T, U, and V are allocated into leagues 1 and 2 for a match. The constraints are: 1) If P is in league 1, then Q must be in league 2. 2) R and S must be assigned to different leagues. 3) If T is in league 2, then U must be in league 1. 4) V cannot be in the same league as U. Question: If R is in league 1, which of the following must be true? a) P is in league 1. b) S is in league 2. c) T is in league 1. d) U is in league 2.",
+  "question_parsing": [
+    "Entities: Contestants P, Q, R, S, T, U, V.",
+    "Initial setup: Assign each to league 1 or 2.",
+    "Rule 1: If P in 1, Q in 2.",
+    "Rule 2: R and S not in same league.",
+    "Rule 3: If T in 2, U in 1.",
+    "Rule 4: V and U not in the same league.",
+    "Specific scenario: R is in league 1."
+  ],
+  "answer": "b",
+  "cot": "Given R is in league 1, by Rule 2, S must be in league 2. Rules 1, 3, and 4 do not enforce additional constraints related to the specific positions of P, T, U, or V affecting S's position. Thus, S being in league 2 remains the only necessary outcome.",
+  "cot_parsing": [
+    {
+      "statement": "R in league 1 requires S in league 2.",
+      "evidence": "Rule 2 stating R and S must be in different leagues.",
+      "Verification": "true"
+    }
+  ],
+  "id": 914422,
+  "sel_idx": 914422
+}

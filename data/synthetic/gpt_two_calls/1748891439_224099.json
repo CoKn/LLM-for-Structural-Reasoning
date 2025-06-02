@@ -1,0 +1,35 @@
+{
+  "question": "Seven siblings: G, H, I, J, K, L, and M are deciding on vacation groups. They must split into two groups: Beach or Mountain. The following conditions are given: 1) If G goes to the Beach, then J must go to the Mountain. 2) H and K must be in the same group. 3) If L goes to the Mountain, M must join G. 4) J and K must be in different groups. 5) I cannot be in the same group as G. Question: If J is on the Mountain, which statement is necessary?\nA) G is on the Beach\nB) I is on the Beach\nC) L is on the Beach\nD) K is on the Mountain",
+  "question_parsing": [
+    "Entities: G, H, I, J, K, L, M",
+    "Choices: Beach or Mountain",
+    "Constraint 1: If G goes to the Beach, then J must go to the Mountain",
+    "Constraint 2: H and K must be in the same group",
+    "Constraint 3: If L goes to the Mountain, M must join G",
+    "Constraint 4: J and K must be in different groups",
+    "Constraint 5: I cannot be in the same group as G",
+    "Scenario: J is on the Mountain",
+    "Question: Which statement is necessary?"
+  ],
+  "id": 224099,
+  "sel_idx": 224099,
+  "answer": "B) I is on the Beach",
+  "cot": "Since J is on the Mountain, G must be on the Beach (from Constraint 1 which links G\u2019s Beach position to J being separately on the Mountain). Given Constraint 5, I can\u2019t be in the same group as G, implying that I must be on the Beach as well.\n\nLet's verify additional constraints:\n- Constraint 2: H and K have to align; however, the placement is not known unless further data provided.\n- Constraint 3 with L could affect M via G only if more placements were specified.\n- Constraint 4 separates K and J, which is inherently true since J is on the Mountain.\n\nTherefore, with the consistent chain logic, while others are possible configurations, \"B) I is on the Beach\" is a consequent step required from J being on the Mountain.",
+  "cot_parsing": [
+    {
+      "statement": "G is on the Beach when J is on Mountain.",
+      "evidence": "Constraint 1 dictates G's placement based on J\u2019s being away.",
+      "Verification": "true"
+    },
+    {
+      "statement": "If G is on the Beach, I must be on the Beach.",
+      "evidence": "Constraint 5 absolutely prevents G and I being in the same group (Mountain case).",
+      "Verification": "true"
+    },
+    {
+      "statement": "All constraints harmonize with I on the Beach if J is on the Mountain.",
+      "evidence": "Options and direct rules do not create other inviabilities for roles.",
+      "Verification": "true"
+    }
+  ]
+}

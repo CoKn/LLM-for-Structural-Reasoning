@@ -1,0 +1,32 @@
+{
+  "question": "Seven employees, A, B, C, D, E, F, and G, are divided into two teams: X and Y. The division must satisfy the following conditions: 1) If A is on team X, then B must be on team Y. 2) C and D cannot be on the same team. 3) If F is on team Y, then E must be on team X. 4) Either G or B must be on team X, but not both. Given that B is on team Y, which employee must be on team X? (a) A (b) G (c) E (d) D",
+  "question_parsing": [
+    "Seven employees, A, B, C, D, E, F, and G are divided into teams X and Y.",
+    "If A is on team X, B must be on team Y.",
+    "C and D cannot be on the same team.",
+    "If F is on team Y, E must be on team X.",
+    "Either G or B must be on team X, but not both.",
+    "B is on team Y."
+  ],
+  "id": 181487,
+  "sel_idx": 181487,
+  "answer": "(b) G",
+  "cot": "B is on Team Y, so by Rule 4, G must be on Team X since B is not. C and D's potential positions relate as an exclusion and not definite here as we're pinned between G or B. Since B's on Team Y aligned to all provided parameters and further links to Rule 4 direct assignment towards G. A holds no motion without knowing F/Y confirming E/X issues; logical recent checks comply better for G.",
+  "cot_parsing": [
+    {
+      "statement": "Given B is on team Y, G must be on team X.",
+      "evidence": "Rule 4: Either G or B in X only. B in Y enforces G in X.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C and D cannot be on the same team, but this does not affect G's candidacy.",
+      "evidence": "Rule 2: This exclusion no relevance to G's assigned scenario.",
+      "Verification": "true"
+    },
+    {
+      "statement": "F / Y and E / X satisfies direct implying through rule 3, yet the response remains isolated G to position.",
+      "evidence": "Rule 3, acts as sub-constraint in unique events, not exercised here.",
+      "Verification": "true"
+    }
+  ]
+}

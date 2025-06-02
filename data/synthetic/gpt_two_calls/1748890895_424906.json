@@ -1,0 +1,43 @@
+{
+  "question": "Five participants, A, B, C, D, and E, have registered for a workshop which offers two types of sessions: morning or afternoon. Each participant will attend one session. The following conditions apply: \n\n1. If A attends the morning session, then C must attend the afternoon session. \n2. B and D must attend different sessions. \n3. If D attends the afternoon session, then A must attend the morning session. \n4. E will attend the same session as B. \n\nGiven that D is attending the afternoon session, which of the following must be true? \n\nA) C attends the morning session. \nB) A attends the morning session. \nC) B attends the afternoon session. \nD) E attends the morning session.",
+  "question_parsing": [
+    "Five participants, A, B, C, D, and E, attend a workshop with morning or afternoon sessions.",
+    "If A attends the morning, then C attends the afternoon.",
+    "B and D must attend different sessions.",
+    "If D attends the afternoon, then A attends the morning.",
+    "E will attend the same session as B.",
+    "D is attending the afternoon session.",
+    "Which must be true?"
+  ],
+  "id": 424906,
+  "sel_idx": 424906,
+  "answer": "b",
+  "cot": "Given that D is attending the afternoon session, condition 3 states that A must attend the morning session. Since A is attending the morning session, condition 1 does not automatically apply here. However, condition 2 requires that B and D attend different sessions, meaning B must attend the morning. Condition 4 indicates that E will attend the same session as B, so E must also attend the morning session. This leaves open the possibility for C to attend either session, fulfilling all given conditions. Therefore, the statement that must be true is B) A attends the morning session.",
+  "cot_parsing": [
+    {
+      "statement": "D is attending the afternoon session.",
+      "evidence": "This is given in the problem statement.",
+      "Verification": "true"
+    },
+    {
+      "statement": "If D attends the afternoon session, then A must attend the morning session.",
+      "evidence": "Direct application of condition 3.",
+      "Verification": "true"
+    },
+    {
+      "statement": "B and D must attend different sessions, so B must attend the morning session.",
+      "evidence": "Condition 2 requires B and D in different sessions, D is in the afternoon, so B must be in the morning.",
+      "Verification": "true"
+    },
+    {
+      "statement": "E will attend the same session as B, so E must also attend the morning session.",
+      "evidence": "Condition 4 states E and B must attend the same session, B is attending the morning session.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A attending the morning session is the only statement that is definitively true given the conditions.",
+      "evidence": "With the above deductions, A attending the morning session is consistently required and validated.",
+      "Verification": "true"
+    }
+  ]
+}

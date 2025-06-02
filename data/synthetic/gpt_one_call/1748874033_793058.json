@@ -1,0 +1,23 @@
+{
+  "question": "Six members: C, D, E, F, G, and H are on committees 1 and 2. The following conditions apply: 1) If C is on committee 1, D must be on committee 2. 2) E and F must be on different committees. 3) If G is on committee 2, then H must be on committee 1. 4) C and G cannot be on the same committee. Question: If E is on committee 1, which of the following must be true? a) C is on committee 1. b) F is on committee 2. c) G is on committee 1. d) H is on committee 2.",
+  "question_parsing": [
+    "Entities: Members C, D, E, F, G, H.",
+    "Initial setup: Assign each to committee 1 or 2.",
+    "Rule 1: If C is on 1, D is on 2.",
+    "Rule 2: E and F are on different committees.",
+    "Rule 3: If G is on 2, H is on 1.",
+    "Rule 4: C and G are not on the same committee.",
+    "Specific scenario: E is on committee 1."
+  ],
+  "answer": "b",
+  "cot": "Given E is on committee 1, F must be on committee 2 (Rule 2). Rule 1 and Rule 4 are unaffected by F's placement. Rule 3 does not directly connect to E or F's location but rather about G and H. Thus, F must be in committee 2 according to the given scenario.",
+  "cot_parsing": [
+    {
+      "statement": "E in committee 1 necessitates F in committee 2.",
+      "evidence": "Rule 2: E and F must be on different committees.",
+      "Verification": "true"
+    }
+  ],
+  "id": 793058,
+  "sel_idx": 793058
+}

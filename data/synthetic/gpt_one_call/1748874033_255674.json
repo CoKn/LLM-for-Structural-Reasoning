@@ -1,0 +1,23 @@
+{
+  "question": "Six people: F, G, H, I, J, and K are going to two parties, A or B. The conditions are: 1) If G is at party A, then H must be at party B. 2) I and J must go to the same party. 3) If G and I are at the same party, then K must be at party B. 4) F and K cannot both be at party B. Question: If K is at party A, what must be true? a) I is at party A. b) G is at party B. c) J is at party B. d) F is at party A.",
+  "question_parsing": [
+    "Entities: People F, G, H, I, J, K.",
+    "Initial setup: Assign each to party A or B.",
+    "Rule 1: If G is at A, H is at B.",
+    "Rule 2: I and J must be at the same party.",
+    "Rule 3: If G and I are at the same party, K is at B.",
+    "Rule 4: F and K cannot both be at B.",
+    "Specific scenario: K is at party A."
+  ],
+  "answer": "b",
+  "cot": "Given K is at party A, Rule 4 ensures F cannot be at party B, which does not fix F's position. Rule 3 cannot be applied if G and I are not at the same party as K in its current position doesn't violate Rule 3. If K is at A, G must be at B since having G at A requires H at B (Rule 1). Thus, G at B avoids any logical conflict under Rule 3. Hence, G must be at party B.",
+  "cot_parsing": [
+    {
+      "statement": "If K is at party A, G must be at B.",
+      "evidence": "Avoidance of Rule 3 violation where G and I together at A with K at B would be invalid.",
+      "Verification": "true"
+    }
+  ],
+  "id": 255674,
+  "sel_idx": 255674
+}

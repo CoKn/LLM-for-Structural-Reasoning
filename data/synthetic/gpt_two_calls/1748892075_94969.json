@@ -1,0 +1,44 @@
+{
+  "question": "Six objects\u2014F, G, H, I, J, and K\u2014are to be placed in either Box X or Box Y, subject to the following rules: (1) If F is in Box X, G must also be in Box X. (2) H and I cannot be in the same box. (3) J must be in the same box as K. (4) If I is in Box Y, then F must be in Box Y. What must be true in this scenario? A) G is in Box X. B) K is in Box Y. C) H is in Box X. D) J and F are in different boxes.",
+  "question_parsing": [
+    "Entities: Objects F, G, H, I, J, K",
+    "Initial setup: Place objects in Box X or Box Y",
+    "Condition 1: If F is in Box X, G must also be in Box X",
+    "Condition 2: H and I cannot be in the same box",
+    "Condition 3: J must be in the same box as K",
+    "Condition 4: If I is in Box Y, then F must be in Box Y",
+    "Specific Question: What must be true in this scenario?",
+    "Options: A) G is in Box X. B) K is in Box Y. C) H is in Box X. D) J and F are in different boxes."
+  ],
+  "id": 94969,
+  "sel_idx": 94969,
+  "answer": "D",
+  "cot": "To solve this puzzle, we need to examine each condition and evaluate the given options. Start by considering the implications of the rules. \n1. From condition (1), if F is in Box X, G must be there too, but this does not necessitate G being in Box X unless F is there. Thus A isn't a definite truth.\n2. Condition (2) prevents H and I from sharing a box. Either H is in X and I in Y, or vice versa. But neither placement is definite.\n3. From condition (3), J and K must be in the same box, but that doesn't require K to be explicitly in Box Y unless J is determined to be there, which isn't certain without more context.\n4. Condition (4) ensures if I is in Box Y, F must also be in Box Y. This fact logically prevents J and F from being in the same box if I is indeed put in Box Y since J and K must be together and either could go to X.\nThus, based on conditions 3 and 4, D is logically sound, as J and F can't share the same box if F is dictated by whether I is in Box Y and J is linked to K, which could be the opposite of F.",
+  "cot_parsing": [
+    {
+      "statement": "If F is in Box X, G must be in Box X. If F is in Box Y, G can be in either box.",
+      "evidence": "Condition 1",
+      "Verification": "true"
+    },
+    {
+      "statement": "H and I cannot be in the same box, so either H is in X and I in Y, or H is in Y and I in X, but neither placement is certain.",
+      "evidence": "Condition 2",
+      "Verification": "true"
+    },
+    {
+      "statement": "J must be in the same box as K.",
+      "evidence": "Condition 3",
+      "Verification": "true"
+    },
+    {
+      "statement": "If I is in Box Y, then F must be in Box Y, resulting in J and F being in different boxes because J must be wherever K is placed.",
+      "evidence": "Condition 4 and linkage between J and K",
+      "Verification": "true"
+    },
+    {
+      "statement": "J and F are in different boxes must hold true based on the implications of conditions.",
+      "evidence": "Logical consequence of condition 4 if I is in Box Y",
+      "Verification": "true"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "question": "There are five objects: P, Q, R, S, T. Each must be placed in either Container 1 or Container 2. The following rules apply: 1) If P is in Container 1, Q must be in Container 2. 2) R must be in the same container as T. 3) S and Q cannot be in the same container. 4) If R is in Container 1, P cannot be in Container 2. Question: If S is in Container 1, which of the following must be false?\nA) Q is in Container 2\nB) R is in Container 1\nC) T is in Container 2\nD) P is in Container 1",
+  "question_parsing": [
+    "Entities: P, Q, R, S, T",
+    "Choices: Container 1 or Container 2",
+    "Constraint 1: If P is in Container 1, Q must be in Container 2",
+    "Constraint 2: R must be in the same container as T",
+    "Constraint 3: S and Q cannot be in the same container",
+    "Constraint 4: If R is in Container 1, P cannot be in Container 2",
+    "Scenario: S is in Container 1",
+    "Question: Which of the following must be false?"
+  ],
+  "id": 912039,
+  "sel_idx": 912039,
+  "answer": "A) Q is in Container 2",
+  "cot": "Given S is in Container 1, according to Constraint 3, Q must be in Container 2. Additionally, if R is in Container 1, T must be in Container 1 due to Constraint 2. However, if R is in Container 1, then by Constraint 4, P cannot be in Container 2, creating a contradiction with Constraint 1 that requires Q to be in Container 2 only if P is in Container 1.\n\nHence, if R is indeed in Container 1, Q cannot be in Container 2 (and vice versa). Therefore, keeping S in Container 1 and Q in Container 2 leads to a contradiction if other conditions don't resolve. Therefore, the statement \"A) Q is in Container 2\" must be false when S is in Container 1.",
+  "cot_parsing": [
+    {
+      "statement": "If S is in Container 1, Q cannot be in Container 1.",
+      "evidence": "Constraint 3 specifies S and Q cannot be in the same container.",
+      "Verification": "true"
+    },
+    {
+      "statement": "If R is in Container 1, T must also be in Container 1.",
+      "evidence": "Constraint 2 requires R and T to be in the same container.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Constraint 4 leads to a contradiction when R is in Container 1 and P in Container 2.",
+      "evidence": "Constraint 4 forbids P from being outside Container 1 if R is in Container 1.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A) Q is in Container 2 creates a contradiction when P must also then be in Container 2.",
+      "evidence": "The conditional constraints force P into the same container with Q causing errors in this logic context.",
+      "Verification": "true"
+    }
+  ]
+}

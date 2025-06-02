@@ -1,0 +1,33 @@
+{
+  "question": "In a committee, there are six members: A, B, C, D, E, and F. Each member must be assigned to work on one of two projects: Project X or Project Y. The following conditions apply: 1) If A is assigned to Project X, then D must be assigned to Project Y. 2) B and E cannot be on the same project. 3) Either C or F must be assigned to Project Y, but not both. 4) If E is assigned to Project X, then A must be assigned to Project Y. Based on these conditions, what must be true? a) B is on Project X. b) D is on Project X. c) E is on Project Y. d) F is on Project X.",
+  "question_parsing": [
+    "Members: A, B, C, D, E, F",
+    "Projects: X, Y",
+    "Condition1: If A is assigned to X, then D is assigned to Y.",
+    "Condition2: B and E cannot be on the same project.",
+    "Condition3: Either C or F must be assigned to Y, but not both.",
+    "Condition4: If E is assigned to X, then A is assigned to Y.",
+    "Scenario: Determine what must be true."
+  ],
+  "answer": "d",
+  "cot": "To solve the puzzle, we need to analyze each condition systematically: Condition 1 establishes that if A is on X, D must be on Y. Condition 2 prevents B and E from being on the same project. Condition 3 mandates that either C or F be on Y, but not both, which means if C is on Y, F must be on X and vice versa. Condition 4 ensures that if E is on X, then A must be on Y. Let's consider E on X. Then, by Condition 4, A is on Y. By Condition 3, if F is on X, C is then on Y. This means B must be on X because it cannot be on Y with E also on Y. Thus, D must be on Y. There's no requirement placing D on X, instead we conclude that F must be on X.",
+  "cot_parsing": [
+    {
+      "statement": "If E is on X, then A must be on Y.",
+      "evidence": "Condition 4 specifies that E on X implies A on Y.",
+      "Verification": "true"
+    },
+    {
+      "statement": "B cannot be on the same project as E.",
+      "evidence": "Condition 2 prohibits B and E being together.",
+      "Verification": "true"
+    },
+    {
+      "statement": "F must be on X to satisfy conditions 1 and 3 simultaneously.",
+      "evidence": "Condition 3 and analysis ensure F on X.",
+      "Verification": "true"
+    }
+  ],
+  "id": 124987,
+  "sel_idx": 124987
+}

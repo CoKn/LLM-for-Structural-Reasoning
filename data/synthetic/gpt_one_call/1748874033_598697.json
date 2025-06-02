@@ -1,0 +1,23 @@
+{
+  "question": "Seven friends: Q, R, S, T, U, V, and W are divided into two teams, Alpha and Beta. The conditions are: 1) If Q is in Alpha, then R must be in Beta. 2) S and T cannot be on the same team. 3) If V is in Beta, then U must be in Alpha. 4) W cannot be in the same team as U. If S is in Beta, what must be true? a) Q is in Alpha. b) R is in Alpha. c) T is in Alpha. d) U is in Beta.",
+  "question_parsing": [
+    "Entities: Friends Q, R, S, T, U, V, W.",
+    "Initial setup: Assign each to team Alpha or Beta.",
+    "Rule 1: If Q is in Alpha, R is in Beta.",
+    "Rule 2: S and T cannot be on same team.",
+    "Rule 3: If V is in Beta, U is in Alpha.",
+    "Rule 4: W and U not on same team.",
+    "Specific scenario: S is in Beta."
+  ],
+  "answer": "c",
+  "cot": "Given S is in Beta, T must be in Alpha (Rule 2). Rule 1 does not directly affect this initial setup as neither Q nor R's position is constrained by S's initial position. Rules 3 and 4 lack direct application without specific placements for V and U. Thus, T being in Alpha is the necessary result given S's location.",
+  "cot_parsing": [
+    {
+      "statement": "S in Beta requires T in Alpha.",
+      "evidence": "Rule 2: S and T cannot be on the same team.",
+      "Verification": "true"
+    }
+  ],
+  "id": 598697,
+  "sel_idx": 598697
+}

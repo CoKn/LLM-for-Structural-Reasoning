@@ -1,0 +1,44 @@
+{
+  "question": "Five employees, A, B, C, D, and E, must be assigned to work on one of two projects: Project X or Project Y. The following conditions apply: 1) If A is assigned to Project X, then B must be assigned to Project Y. 2) C and D must be assigned to the same project. 3) E cannot be assigned to Project Y if B is assigned to Project Y. 4) If D is assigned to Project X, then A cannot be assigned to the same project. In the scenario where A is assigned to Project Y, what must be true? A) B is assigned to Project Y. B) C is assigned to Project X. C) D is assigned to Project Y. D) E is assigned to Project X.",
+  "question_parsing": [
+    "Entities: A, B, C, D, E",
+    "Binary choice: Project X or Project Y",
+    "Condition 1: If A is assigned to Project X, B must be assigned to Project Y.",
+    "Condition 2: C and D must be assigned to the same project.",
+    "Condition 3: E cannot be assigned to Project Y if B is assigned to Project Y.",
+    "Condition 4: If D is assigned to Project X, A cannot be assigned to Project X.",
+    "Scenario: A is assigned to Project Y",
+    "Question: What must be true?"
+  ],
+  "id": 123230,
+  "sel_idx": 123230,
+  "answer": "d",
+  "cot": "When A is assigned to Project Y, we analyze the constraints. Constraint 1 doesn't apply because it involves A being in Project X. Constraint 2 mandates C and D must be on the same project. Constraint 3 involves E being on Y only if B is not on Y \u2014 irrelevant unless B's assignment is known. Constraint 4 doesn't apply since it's based on D's assignment to X affecting A. We have freedom with B's assignment because Constraint 1 doesn't bind B to a project when A is on Y. When A is on Y, B can be on either project, allowing flexibility. With C and D tied to the same project, they can both be on X or Y. However, if E is on Y with B, it breaches Constraint 3. Therefore, E must be on X to avoid conflict if B happens to be on Y, making Option D (E on X) the necessary truth.",
+  "cot_parsing": [
+    {
+      "statement": "When A is assigned to Project Y, Constraint 1 is irrelevant.",
+      "evidence": "Constraint 1 only applies when A is on X.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C and D must be assigned to the same project.",
+      "evidence": "Constraint 2 insists on C and D being together.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Constraint 3 mandates E cannot be on Project Y if B is also on Y.",
+      "evidence": "Explicit statement from Constraint 3.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Consider B on Project Y as it is not fixed and explore its implications.",
+      "evidence": "Without Constraint 1 in effect, B has no restrictions tethering it.",
+      "Verification": "true"
+    },
+    {
+      "statement": "To satisfy Constraint 3, E must be on Project X.",
+      "evidence": "If B is free to go to Y, then E cannot go to Y and must be on X.",
+      "Verification": "true"
+    }
+  ]
+}

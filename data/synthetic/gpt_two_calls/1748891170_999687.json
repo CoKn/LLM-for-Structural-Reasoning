@@ -1,0 +1,38 @@
+{
+  "question": "Five students, A, B, C, D, and E, are each assigned to study either French or Spanish. The following conditions apply: 1) If A studies French, then B studies Spanish. 2) C and D must study different languages. 3) If E studies Spanish, then A studies the same language as C. 4) D cannot study French if A studies Spanish. What must be true if C studies French?\nA) A studies French\nB) B studies French\nC) D studies Spanish\nD) E studies French",
+  "question_parsing": [
+    "5 students: A, B, C, D, E",
+    "Each student is assigned to study either French or Spanish",
+    "Condition 1: If A studies French, then B studies Spanish",
+    "Condition 2: C and D must study different languages",
+    "Condition 3: If E studies Spanish, then A studies the same language as C",
+    "Condition 4: D cannot study French if A studies Spanish",
+    "Scenario: C studies French"
+  ],
+  "id": 999687,
+  "sel_idx": 999687,
+  "answer": "C",
+  "cot": "Let's examine what happens if C studies French under the given conditions:\n1. Since C studies French, according to Condition 2, D must study a different language, which is Spanish.\n2. Checking Condition 3, if E studies Spanish, then A studies the same language as C, which is French (given C studies French) but we have no immediate need to apply this condition since it depends on what language E chooses.\n3. Checking Condition 4, D cannot study French if A studies Spanish. Since D is confirmed to study Spanish, this condition does not apply right now.\n4. Therefore, with the given C studies French, the direct implication that must be true is that D studies Spanish.",
+  "cot_parsing": [
+    {
+      "statement": "C studies French.",
+      "evidence": "Given in scenario",
+      "Verification": "true"
+    },
+    {
+      "statement": "D must study a different language than C.",
+      "evidence": "Condition 2: C and D must study different languages.",
+      "Verification": "true"
+    },
+    {
+      "statement": "D studies Spanish.",
+      "evidence": "Since C studies French and C and D must study different languages, D studies Spanish.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A must study French if E studies Spanish.",
+      "evidence": "Condition 3: If E studies Spanish, then A studies the same language as C. But E's language is unknown.",
+      "Verification": "irrelevant without knowing E's language choice"
+    }
+  ]
+}

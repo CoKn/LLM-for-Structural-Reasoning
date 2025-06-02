@@ -1,0 +1,28 @@
+{
+  "question": "Five objects: L, M, N, O, and P must be placed in rooms 1 and 2. The conditions are: 1) If L is in room 1, then M must be in room 2. 2) N and O must be in different rooms. 3) If P is in room 2, then N must also be in room 2. 4) O and P cannot be in room 1 together. Question: If N is in room 1, which of the following must be true? a) L is in room 1. b) M is in room 2. c) P is in room 1. d) O is in room 2.",
+  "question_parsing": [
+    "Entities: Objects L, M, N, O, P.",
+    "Initial setup: Assign each to room 1 or room 2.",
+    "Rule 1: If L is in 1, then M is in 2.",
+    "Rule 2: N and O must be in different rooms.",
+    "Rule 3: If P is in 2, then N is in 2.",
+    "Rule 4: O and P cannot both be in room 1.",
+    "Specific scenario: N is in room 1."
+  ],
+  "answer": "d",
+  "cot": "Given N is in room 1, O must be in room 2 (Rule 2). Rule 4 does not apply since it requires both O and P to be in the same room. If P were in room 2, Rule 3 would be violated as N is confirmed in room 1. So, P must be in room 1. None of the constraints force L or M's placement based on the given scenario. Thus, O being in room 2 is the valid deduction.",
+  "cot_parsing": [
+    {
+      "statement": "N in room 1 requires O to be in room 2.",
+      "evidence": "Rule 2: N and O in different rooms.",
+      "Verification": "true"
+    },
+    {
+      "statement": "P cannot be in room 2.",
+      "evidence": "To avoid violation of Rule 3 with N in room 1.",
+      "Verification": "true"
+    }
+  ],
+  "id": 129199,
+  "sel_idx": 129199
+}

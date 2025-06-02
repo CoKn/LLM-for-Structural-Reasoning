@@ -1,0 +1,29 @@
+{
+  "question": "There are six people: A, B, C, D, E, and F. Each person must either join Team X or Team Y. The following constraints apply: 1) If A joins Team X, then B must join Team Y. 2) C cannot be on the same team as D. 3) If E is on Team Y, then F must be on Team X. 4) B and E must be on different teams. Question: If C is on Team Y, which statement must be true?\nA) A is on Team X\nB) D is on Team X\nC) F is on Team Y\nD) B is on Team Y",
+  "question_parsing": [
+    "Entities: A, B, C, D, E, F",
+    "Choices: Team X or Team Y",
+    "Constraint 1: If A joins Team X, then B must join Team Y",
+    "Constraint 2: C cannot be on the same team as D",
+    "Constraint 3: If E is on Team Y, then F must be on Team X",
+    "Constraint 4: B and E must be on different teams",
+    "Scenario: C is on Team Y",
+    "Question: Which statement must be true?"
+  ],
+  "id": 76572,
+  "sel_idx": 76572,
+  "answer": "B) D is on Team X",
+  "cot": "Let's analyze the scenario where C is on Team Y. According to Constraint 2, C and D cannot be on the same team. Thus, since C is on Team Y, D must be on Team X. The other constraints need to be checked to ensure consistency with this configuration:\n\n1. Constraint 1 doesn't directly apply here, as we don't have information on A's team choice based on C being on Team Y.\n\n2. Constraint 3 doesn't provide any information in this context without knowing E's team.\n\n3. Constraint 4 indicates B and E must be on different teams, but without specific info, we can't narrow down further in this scenario.\n\nTherefore, the only statement that must be true given that C is on Team Y is that D must be on Team X.",
+  "cot_parsing": [
+    {
+      "statement": "D is on Team X",
+      "evidence": "C is on Team Y, and by Constraint 2, C and D cannot be on the same team.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Constraints 1, 3, and 4 do not contradict the solution with the available information.",
+      "evidence": "The current setup with C on Team Y and D on Team X does not require A, B, E, or F's placement under the provided conditions.",
+      "Verification": "true"
+    }
+  ]
+}

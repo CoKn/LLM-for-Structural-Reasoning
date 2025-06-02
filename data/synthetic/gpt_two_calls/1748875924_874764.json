@@ -1,0 +1,49 @@
+{
+  "question": "Five employees, A, B, C, D, and E, are each assigned to work on one of two projects: Project X or Project Y. The following conditions apply: 1. If A is assigned to Project X, then B must be assigned to Project Y. 2. Either A or C must be assigned to Project X, but not both. 3. If D is assigned to Project Y, then B must be assigned to Project X. 4. E must be assigned to a different project than C. 5. If B is assigned to Project Y, then D must also be assigned to Project Y. Given that D is assigned to Project X, which of the following must be true? (A) C is assigned to Project X. (B) A is assigned to Project Y. (C) E is assigned to Project Y. (D) B is assigned to Project X.",
+  "question_parsing": [
+    "Five employees A, B, C, D, and E assigned to Project X or Project Y",
+    "If A is assigned to Project X, then B must be assigned to Project Y",
+    "Either A or C must be assigned to Project X, but not both",
+    "If D is assigned to Project Y, then B must be assigned to Project X",
+    "E must be assigned to a different project than C",
+    "If B is assigned to Project Y, then D must also be assigned to Project Y",
+    "D is assigned to Project X",
+    "Which of the following must be true?"
+  ],
+  "id": 874764,
+  "sel_idx": 874764,
+  "answer": "b",
+  "cot": "Since D is assigned to Project X, the condition 'If D is assigned to Project Y, then B must be assigned to Project X' doesn't apply. According to condition 5, if B were assigned to Project Y, then D would also need to be assigned to Project Y, contradicting the fact that D is on Project X. Therefore, B cannot be assigned to Project Y, so B must be assigned to Project X. With B on Project X, condition 1 implies A cannot be on Project X because that would necessitate B being on Project Y, which we have already determined is impossible. Therefore, A must be assigned to Project Y. Now looking at condition 2, since A is not assigned to Project X, C must be, as exactly one of them must be assigned to Project X. Finally, from condition 4, since C is on Project X, E must be on Project Y. The configuration respects all conditions and does not lead to contradictions. Therefore, answer choice (B) 'A is assigned to Project Y' must be true.",
+  "cot_parsing": [
+    {
+      "statement": "D is assigned to Project X, so B cannot be assigned to Project Y.",
+      "evidence": "Condition 5 states that if B is assigned to Project Y, D must also be assigned to Project Y. This contradicts the fact that D is on Project X.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Since B cannot be on Project Y, B must be assigned to Project X.",
+      "evidence": "No other project assignment for B could satisfy the given conditions without causing contradictions.",
+      "Verification": "true"
+    },
+    {
+      "statement": "With B on Project X, A cannot be on Project X.",
+      "evidence": "Condition 1 states that if A is on Project X, B must be on Project Y, contradicting B being on Project X.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A must be assigned to Project Y.",
+      "evidence": "Since A cannot be on Project X, the only remaining possibility is Project Y.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Since A is not on Project X, C must be on Project X.",
+      "evidence": "Condition 2 dictates either A or C, but not both, must be on Project X.",
+      "Verification": "true"
+    },
+    {
+      "statement": "E is assigned to Project Y.",
+      "evidence": "Condition 4 requires E to be on a different project than C, and with C on Project X, E is on Project Y.",
+      "Verification": "true"
+    }
+  ]
+}

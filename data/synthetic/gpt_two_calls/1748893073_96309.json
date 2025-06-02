@@ -1,0 +1,32 @@
+{
+  "question": "Six plants, P, Q, R, S, T, and U, need to be placed in two types of gardens: a flower garden or a vegetable garden. They must be arranged according to the following rules: 1) If P is in the flower garden, then Q must be in the vegetable garden. 2) S and T cannot be in the same type of garden. 3) If U is in the flower garden, then T must be in the vegetable garden. 4) Either R or Q must be in the flower garden, but not both. If P is placed in the flower garden, which plant must be in the vegetable garden? (a) S (b) R (c) T (d) Q",
+  "question_parsing": [
+    "Six plants, P, Q, R, S, T, and U must be placed in a flower or vegetable garden.",
+    "If P is in the flower garden, Q must be in the vegetable garden.",
+    "S and T cannot be in the same type of garden.",
+    "If U is in the flower garden, T must be in the vegetable garden.",
+    "Either R or Q must be in the flower garden, but not both.",
+    "P is placed in the flower garden."
+  ],
+  "id": 96309,
+  "sel_idx": 96309,
+  "answer": "(d) Q",
+  "cot": "If P is placed in the flower garden, by rule 1, Q must be in the vegetable garden. Rule 4 indicates either R or Q must be in the flower garden, but not both, which means R likely stays in the flower garden. However, given P's placement and necessary garden inclusion, Q's involvement in vegetable garden aligns the requirements. Rules exclude S and T jointly in placement matters but here Q direct from rule 1 satisfies a placement.",
+  "cot_parsing": [
+    {
+      "statement": "P is in the flower garden, so Q must be in the vegetable garden.",
+      "evidence": "Rule 1: Direct implication from P's placement.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Either R or Q must be in the flower garden, but not both.",
+      "evidence": "Rule 4: Aligns each must temporally hold position.",
+      "Verification": "true"
+    },
+    {
+      "statement": "R can remain in the flower garden to satisfy alternative positioning.",
+      "evidence": "Aligns with Rule 4 as Q confirms in the vegetable placement.",
+      "Verification": "true"
+    }
+  ]
+}

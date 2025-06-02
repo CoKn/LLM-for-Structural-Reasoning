@@ -9,9 +9,10 @@ class SudokuEnvironment:
             self.grid = [row[:] for row in grid]
         self.solution = None
 
-    def display(self):
-        """Display the 4x4 Sudoku grid in a readable format."""
-        print("+-------+-------+")
+    def display(self, print_game=True):
+        """Display the 4x4 Sudoku grid in a readable format and return the string."""
+        lines = []
+        lines.append("+-------+-------+")
         for i, row in enumerate(self.grid):
             line = "| "
             for j, cell in enumerate(row):
@@ -19,10 +20,15 @@ class SudokuEnvironment:
                 if j == 1:
                     line += "| "
             line += "|"
-            print(line)
+            lines.append(line)
             if i == 1:
-                print("+-------+-------+")
-        print("+-------+-------+")
+                lines.append("+-------+-------+")
+        lines.append("+-------+-------+")
+
+        display_string = "\n".join(lines)
+        if print_game:
+            print(display_string)
+        return display_string
 
     def get_valid_numbers(self, row, col):
         """Get valid numbers for a given cell position."""

@@ -1,0 +1,42 @@
+{
+  "question": "Five friends, A, B, C, D, and E, are each watching a movie in one of two rooms, Room 1 or Room 2. The following conditions apply: 1. If A is in Room 1, then B is in Room 2. 2. C must be in the same room as D. 3. E cannot be in the same room as A. 4. If B is in Room 2, then C is in Room 1. Which of the following must be true?\n\nA) A and C are in different rooms.\nB) D is in Room 2.\nC) E is in Room 1.\nD) B and E cannot be in the same room.",
+  "question_parsing": [
+    "Each of A, B, C, D, and E is in either Room 1 or Room 2.",
+    "If A is in Room 1, then B is in Room 2.",
+    "C must be in the same room as D.",
+    "E cannot be in the same room as A.",
+    "If B is in Room 2, then C is in Room 1.",
+    "Which of the following must be true?"
+  ],
+  "id": 61979,
+  "sel_idx": 61979,
+  "answer": "A) A and C are in different rooms.",
+  "cot": "First, we begin by assuming A is in Room 1. Due to condition 1, B must be in Room 2. Condition 4 then puts C in Room 1 because B is in Room 2. Since C and D must be in the same room (condition 2), D is also in Room 1. However, condition 3 says E cannot be in Room 1 because A is there. Therefore, E must be in Room 2. With this setup, A and C are in different rooms (Room 1 for A and Room 2 for C), satisfying option A. Verifying other scenarios and conditions leads to similar allocations which always prevent A and C from being in the same room under these logical constraints.",
+  "cot_parsing": [
+    {
+      "statement": "Assume A is in Room 1. Therefore, B must be in Room 2.",
+      "evidence": "Condition 1: If A is in Room 1, then B is in Room 2.",
+      "Verification": "true"
+    },
+    {
+      "statement": "B in Room 2 implies C must be in Room 1.",
+      "evidence": "Condition 4: If B is in Room 2, then C is in Room 1.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Since C is in Room 1, D must also be in Room 1.",
+      "evidence": "Condition 2: C must be in the same room as D.",
+      "Verification": "true"
+    },
+    {
+      "statement": "E cannot be in Room 1 due to A being there; thus E is in Room 2.",
+      "evidence": "Condition 3: E cannot be in the same room as A.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A and C are in different rooms.",
+      "evidence": "Logical deduction from all conditions satisfied.",
+      "Verification": "true"
+    }
+  ]
+}

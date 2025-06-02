@@ -1,0 +1,42 @@
+{
+  "question": "Five employees, A, B, C, D, and E, need to be assigned to one of two project teams, X or Y. The following conditions apply: 1) If A is on team X, then B is on team Y. 2) C and D must be on different teams. 3) If E is on team Y, then D is also on team Y. 4) A and C cannot be on the same team. What must be true if A is on team Y? \n\nA) B is on team X \nB) C is on team Y \nC) D is on team X \nD) E is on team Y",
+  "question_parsing": [
+    "A, B, C, D, E must be assigned to project teams X or Y",
+    "If A is on team X, then B is on team Y",
+    "C and D must be on different teams",
+    "If E is on team Y, then D is also on team Y",
+    "A and C cannot be on the same team",
+    "Specific scenario: A is on team Y"
+  ],
+  "id": 34256,
+  "sel_idx": 34256,
+  "answer": "a",
+  "cot": "If A is on team Y, then rule 1 is irrelevant, as it only concerns if A is on team X. Rule 3 does not force E to be on team Y; it only states that if E is on team Y, D must be too. Rule 4 states C cannot be on the same team as A, which means C must be on team X. Rule 2 requires that C and D are on different teams, so if C is on team X, D must be on team Y. Therefore, B must be on team X as no other condition directly applies to B.",
+  "cot_parsing": [
+    {
+      "statement": "A is on team Y; thus rule 1 does not apply.",
+      "evidence": "Rule 1: If A is on team X, then B is on team Y, is irrelevant as A is on team Y.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Rule 3 does not enforce E's placement, only conditional.",
+      "evidence": "Rule 3: If E is on team Y, then D is also on team Y; it's conditional, not a necessity.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C must be on team X due to rule 4.",
+      "evidence": "Rule 4: A and C cannot be on the same team, so if A is on team Y, C must be on team X.",
+      "Verification": "true"
+    },
+    {
+      "statement": "D must be on team Y because C and D must be on different teams.",
+      "evidence": "Rule 2: C and D must be on different teams.",
+      "Verification": "true"
+    },
+    {
+      "statement": "B is on team X as no other condition changes its state.",
+      "evidence": "Since A is on Y, rule 1 does not apply, leaving B free.",
+      "Verification": "true"
+    }
+  ]
+}

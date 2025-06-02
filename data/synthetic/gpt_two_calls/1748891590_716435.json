@@ -1,0 +1,37 @@
+{
+  "question": "Five friends, A, B, C, D, and E, are each designated to attend one of two events: Music Fest or Art Show. The following conditions apply: If A attends the Music Fest, then B must attend the Art Show. C cannot attend the same event as D. If E attends the Art Show, then A must also attend the Art Show. C must attend the Music Fest. What must be true if B attends the Music Fest?\n\nA. A attends the Music Fest.\nB. D attends the Art Show.\nC. E attends the Art Show.\nD. A attends the Art Show.",
+  "question_parsing": [
+    "Initial setup: A, B, C, D, E with two events: Music Fest and Art Show",
+    "Condition 1: If A attends Music Fest, then B attends Art Show",
+    "Condition 2: C cannot attend the same event as D",
+    "Condition 3: If E attends Art Show, then A attends Art Show",
+    "Condition 4: C must attend Music Fest",
+    "Specific scenario: What must be true if B attends the Music Fest?"
+  ],
+  "id": 716435,
+  "sel_idx": 716435,
+  "answer": "A attends the Art Show.",
+  "cot": "Since B is attending the Music Fest, from Condition 1, A cannot be attending the Music Fest; otherwise, B must be at the Art Show. Therefore, A must attend the Art Show. C being at the Music Fest (Condition 4) implies D must be at the Art Show (Condition 2). If E attends the Art Show, A must also attend the Art Show (Condition 3), which is consistent with our current requirement that A is in the Art Show.",
+  "cot_parsing": [
+    {
+      "statement": "Since B attends the Music Fest, A cannot attend the Music Fest.",
+      "evidence": "Condition 1: If A attends Music Fest, B attends Art Show",
+      "Verification": "true"
+    },
+    {
+      "statement": "A must attend the Art Show.",
+      "evidence": "Since A cannot attend Music Fest due to B being there, A attends Art Show.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C attends the Music Fest, so D attends the Art Show.",
+      "evidence": "Condition 4: C must attend Music Fest; Condition 2: C and D cannot attend the same event",
+      "Verification": "true"
+    },
+    {
+      "statement": "Correct answer is option D: A attends the Art Show.",
+      "evidence": "The logical steps show that A must be at the Art Show.",
+      "Verification": "true"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Five people, A, B, C, D, and E, are each traveling to either France or Germany. The following conditions apply: 1) If A travels to France, then B must travel to Germany. 2) C and D cannot both travel to France. 3) If D travels to Germany, then E must travel to France. 4) B and E must travel to different countries. Who must travel to Germany?",
+  "question_parsing": [
+    "Entity list: A, B, C, D, E",
+    "Category options: France, Germany",
+    "Constraint 1: If A travels to France, then B must travel to Germany",
+    "Constraint 2: C and D cannot both travel to France",
+    "Constraint 3: If D travels to Germany, then E must travel to France",
+    "Constraint 4: B and E must travel to different countries",
+    "Scenario question: Who must travel to Germany?"
+  ],
+  "id": 733875,
+  "sel_idx": 733875,
+  "answer": "B and/or D",
+  "cot": "We start by analyzing the given constraints. 1) If A travels to France, then B goes to Germany. Assume A travels to France, B must travel to Germany. 2) C and D cannot both go to France, so at least one must go to Germany. 3) If D travels to Germany, E must go to France. Therefore, if D is in Germany, E is in France. 4) B and E must travel to different countries. If B is in Germany, E must be in France or vice versa. Given these constraints, B must travel to Germany due to Constraint 1 and possibly D due to Constraint 2, but E could also influence D's travel choice due to Constraint 4.",
+  "cot_parsing": [
+    {
+      "statement": "If A travels to France, then B must travel to Germany.",
+      "evidence": "Constraint 1",
+      "Verification": "true"
+    },
+    {
+      "statement": "C and D cannot both travel to France.",
+      "evidence": "Constraint 2",
+      "Verification": "true"
+    },
+    {
+      "statement": "If D travels to Germany, E must travel to France.",
+      "evidence": "Constraint 3",
+      "Verification": "true"
+    },
+    {
+      "statement": "B and E must travel to different countries.",
+      "evidence": "Constraint 4",
+      "Verification": "true"
+    },
+    {
+      "statement": "B must travel to Germany.",
+      "evidence": "Combining all constraints leads to this conclusion for some scenarios.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Possibly D must travel to Germany.",
+      "evidence": "C and D cannot both travel to France, and E being in France would make this likely.",
+      "Verification": "true"
+    }
+  ]
+}

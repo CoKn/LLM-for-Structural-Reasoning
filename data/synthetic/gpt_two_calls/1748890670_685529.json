@@ -1,0 +1,38 @@
+{
+  "question": "There are five students: A, B, C, D, and E. Each student must be assigned to either Team X or Team Y. The following constraints apply: (1) If A is on Team X, then B must also be on Team X. (2) C and D must be on different teams. (3) If E is on Team Y, then C must be on Team X. (4) A cannot be on the same team as D. Given these conditions, if C is on Team Y, which of the following must be true? (a) A is on Team Y. (b) B is on Team X. (c) E is on Team X. (d) D is on Team X.",
+  "question_parsing": [
+    "Entities: Students A, B, C, D, E",
+    "Categories: Team X, Team Y",
+    "If A is on Team X, then B is on Team X",
+    "C and D are on different teams",
+    "If E is on Team Y, then C is on Team X",
+    "A and D are not on the same team",
+    "Scenario: C is on Team Y"
+  ],
+  "id": 685529,
+  "sel_idx": 685529,
+  "answer": "a",
+  "cot": "If C is on Team Y, then from constraint (2), D must be on Team X. Given D is on Team X, from constraint (4), A cannot be on Team X; hence, A must be on Team Y.",
+  "cot_parsing": [
+    {
+      "statement": "C is on Team Y.",
+      "evidence": "Given scenario",
+      "Verification": "true"
+    },
+    {
+      "statement": "D must be on Team X.",
+      "evidence": "Constraint (2): C and D must be on different teams.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A cannot be on Team X if D is on Team X.",
+      "evidence": "Constraint (4): A and D cannot be on the same team.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A is on Team Y.",
+      "evidence": "Since A cannot be on Team X, A must be on Team Y.",
+      "Verification": "true"
+    }
+  ]
+}

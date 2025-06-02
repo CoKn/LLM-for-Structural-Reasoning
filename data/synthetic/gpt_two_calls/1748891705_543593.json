@@ -1,0 +1,33 @@
+{
+  "question": "Five people, A, B, C, D, and E, are deciding whether to attend a conference virtually or in-person. The following conditions apply: 1) If A attends in-person, then B must attend virtually. 2) C cannot attend in-person if A attends in-person. 3) If D attends virtually, then E must also attend virtually. 4) A and E cannot both attend in the same manner. Which one of the following must be true? a) B attends in-person. b) C attends virtually. c) D attends in-person. d) E attends virtually.",
+  "question_parsing": [
+    "Five people: A, B, C, D, E",
+    "Each person either attends virtually or in-person",
+    "If A attends in-person, B attends virtually",
+    "C cannot attend in-person if A attends in-person",
+    "If D attends virtually, E must attend virtually",
+    "A and E cannot attend in the same manner",
+    "Determine what must be true given the conditions"
+  ],
+  "id": 543593,
+  "sel_idx": 543593,
+  "answer": "d) E attends virtually.",
+  "cot": "Given the conditions, if D attends virtually, E must also attend virtually (condition 3). Additionally, A and E cannot both attend in the same manner (condition 4), therefore, if A attends in-person or virtually, E must be opposite. Since D attending virtually forces E to attend virtually, and no conditions explicitly require D to attend in-person, E attending virtually is a necessity under multiple scenarios.",
+  "cot_parsing": [
+    {
+      "statement": "If D attends virtually, then E must attend virtually.",
+      "evidence": "Condition 3",
+      "Verification": "true"
+    },
+    {
+      "statement": "A and E cannot both attend in the same manner.",
+      "evidence": "Condition 4",
+      "Verification": "true"
+    },
+    {
+      "statement": "E attending virtually is compatible with D attending virtually.",
+      "evidence": "As D's attendance virtually forces E's, and no other constraint strictly prevents this.",
+      "Verification": "true"
+    }
+  ]
+}

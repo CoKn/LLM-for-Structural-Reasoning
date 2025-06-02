@@ -1,0 +1,44 @@
+{
+  "question": "Five students, A, B, C, D, and E, are assigned to one of two workshops: Pottery or Painting. The following conditions apply: 1) If A is in the Pottery workshop, then B is in the Painting workshop. 2) C must be in the same workshop as E. 3) If B is in the Painting workshop, D cannot be in the Painting workshop. 4) A and C cannot be in the same workshop. Which of the following must be true? A) A is in the Pottery workshop. B) B is in the Pottery workshop. C) C is in the Painting workshop. D) D is in the Pottery workshop.",
+  "question_parsing": [
+    "There are 5 students, A, B, C, D, and E.",
+    "They must be assigned to either Pottery or Painting workshops.",
+    "If A is in Pottery, then B is in Painting.",
+    "C must be in the same workshop as E.",
+    "If B is in Painting, then D is not in Painting.",
+    "A and C cannot be in the same workshop.",
+    "Which of the following must be true?",
+    "Options: A) A is in Pottery. B) B is in Pottery. C) C is in Painting. D) D is in Pottery."
+  ],
+  "id": 746512,
+  "sel_idx": 746512,
+  "answer": "D) D is in the Pottery workshop.",
+  "cot": "First, consider the conditions. If A is in Pottery, then according to (1), B is in Painting. With B in Painting, using condition (3), D must be in Pottery. Since A and C cannot be in the same workshop (4), if A is in Pottery, C must be in Painting (since C must be in the same workshop as E (2)). All configurations lead to D being in Pottery, making it a consistent truth.",
+  "cot_parsing": [
+    {
+      "statement": "If A is in Pottery, B must be in Painting.",
+      "evidence": "Condition (1): If A is in Pottery, then B is in Painting.",
+      "Verification": "true"
+    },
+    {
+      "statement": "If B is in Painting, D cannot be in Painting.",
+      "evidence": "Condition (3): If B is in Painting, D cannot be in Painting.",
+      "Verification": "true"
+    },
+    {
+      "statement": "C must be in the same workshop as E.",
+      "evidence": "Condition (2): C must be in the same workshop as E.",
+      "Verification": "true"
+    },
+    {
+      "statement": "A and C cannot be in the same workshop.",
+      "evidence": "Condition (4): A and C cannot be in the same workshop.",
+      "Verification": "true"
+    },
+    {
+      "statement": "D must be in Pottery.",
+      "evidence": "From B in Painting (option A and validations), D must be in Pottery as per (3).",
+      "Verification": "true"
+    }
+  ]
+}

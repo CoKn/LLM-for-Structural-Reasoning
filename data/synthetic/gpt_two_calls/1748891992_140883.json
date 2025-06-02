@@ -1,0 +1,47 @@
+{
+  "question": "Five friends: A, B, C, D, and E, are deciding which sport to play after school. Each friend can play either Basketball (B) or Soccer (S). The following conditions apply: \n1. If A plays Basketball, then B must play Soccer.\n2. D cannot play the same sport as C.\n3. If B plays Basketball, then E must also play Basketball.\n4. Either C or E, but not both, play Soccer.\nWhich of the following must be true?\nA) A plays Basketball\nB) B plays Soccer\nC) C plays Basketball\nD) D plays Soccer",
+  "question_parsing": [
+    "Five friends: A, B, C, D, and E, each play either Basketball (B) or Soccer (S).",
+    "If A plays Basketball, then B plays Soccer.",
+    "D cannot play the same sport as C.",
+    "If B plays Basketball, E plays Basketball.",
+    "Either C or E plays Soccer, but not both.",
+    "Which of the following must be true?"
+  ],
+  "id": 140883,
+  "sel_idx": 140883,
+  "answer": "B) B plays Soccer",
+  "cot": "To determine which condition must be true, let's analyze the constraints:\n1. If A plays Basketball, then B must play Soccer.\n   - This doesn't exclude the possibility of A playing Soccer, so it doesn't guarantee that A playing Basketball must be true.\n2. D cannot play the same sport as C. \n   - This introduces a dependency between D and C, but no definitive conclusion about either of their sports without further information.\n3. If B plays Basketball, then E must play Basketball.\n   - Again, it introduces a dependency, but no necessity for B's choice by itself.\n4. Either C or E plays Soccer, but not both.\n   - This means one and only one of C or E must play Soccer, but it does not directly lead to knowing who plays which except they can't both play Soccer or both play Basketball.\n\nEvaluating options:\nA) A plays Basketball - This is not a must be true since A could play Soccer.\nB) B plays Soccer - If B does not play Soccer and plays Basketball, then E must play Basketball, conflicting with condition 4, where either C or E must play Soccer but not both.\nC) C plays Basketball - Possible, but not necessarily true due to available conditions.\nD) D plays Soccer - Possible, but not necessarily true.\n\nBased on the above, the clearest condition that must hold is B) B plays Soccer; if B were to play Basketball, it would violate the exclusive condition about Soccer between C and E.\n",
+  "cot_parsing": [
+    {
+      "statement": "Consider condition 1: If A plays Basketball, then B must play Soccer.",
+      "evidence": "The provided rule directly links A playing Basketball with B playing Soccer, but doesn't restrict A from playing Soccer.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Analyze condition 2: D cannot play the same sport as C.",
+      "evidence": "This creates a dependency but doesn't inherently lead to either playing a specific sport.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Evaluate condition 3: If B plays Basketball, then E must also play Basketball.",
+      "evidence": "Creates a potential conflict with condition 4.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Assess condition 4: Either C or E plays Soccer, but not both.",
+      "evidence": "Directly restricts the possibility of both C and E playing Basketball.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Determine implications of B playing Basketball: If B plays Basketball, and then E must also play Basketball.",
+      "evidence": "This would mean neither C nor E play Soccer, violating condition 4.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Conclude B must play Soccer.",
+      "evidence": "To avoid conflicts with condition 4 and based on earlier deductions.",
+      "Verification": "true"
+    }
+  ]
+}

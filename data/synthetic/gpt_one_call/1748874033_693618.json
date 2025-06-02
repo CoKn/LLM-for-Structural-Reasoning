@@ -1,0 +1,23 @@
+{
+  "question": "Five employees: X, Y, Z, A, and B need to choose between two projects, Red or Blue. The conditions are: 1) If X chooses Red, Y must choose Blue. 2) Z and A must choose different projects. 3) If B chooses Blue, Z must also choose Blue. 4) X and B cannot choose the same project. Question: If Z chooses Red, which of the following must be true? a) X chooses Red. b) Y chooses Blue. c) A chooses Blue. d) B chooses Blue.",
+  "question_parsing": [
+    "Entities: Employees X, Y, Z, A, B.",
+    "Initial setup: Assign each to project Red or Blue.",
+    "Rule 1: If X chooses Red, Y must choose Blue.",
+    "Rule 2: Z and A must choose different projects.",
+    "Rule 3: If B chooses Blue, Z chooses Blue.",
+    "Rule 4: X and B cannot choose the same project.",
+    "Specific scenario: Z chooses Red."
+  ],
+  "answer": "c",
+  "cot": "Given Z chooses Red, by Rule 2, A must choose Blue. Rule 3 does not concern us as B's choice doesn't determine Z's choice when Z is in Red. Neither does Rule 1 affect A's position since X's choice is not directly related. Rule 4 only impacts if X and B's positions were appropriately defined, which they are not, leaving A's forced position as the definitive result.",
+  "cot_parsing": [
+    {
+      "statement": "Z choosing Red requires A to choose Blue.",
+      "evidence": "Rule 2 requiring Z and A to be in different projects.",
+      "Verification": "true"
+    }
+  ],
+  "id": 693618,
+  "sel_idx": 693618
+}

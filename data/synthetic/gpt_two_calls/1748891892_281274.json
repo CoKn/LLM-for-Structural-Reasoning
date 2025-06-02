@@ -1,0 +1,31 @@
+{
+  "question": "Six friends \u2014 A, B, C, D, E, and F \u2014 are deciding whether they should participate in either Art or Science club. The following conditions apply: 1) If A joins Art, then B must join Science. 2) If C joins Science, then D must join Science. 3) Either E or F, but not both, must join Art. 4) If D joins Art, then E must join Science. Given this scenario, which of the following must be true: A) C joins Art. B) E joins Art. C) F joins Science. D) B joins Art.",
+  "question_parsing": [
+    "Six friends: A, B, C, D, E, F",
+    "A or Science, B or Science, C: Science implies D: Science",
+    "Either E or F must join Art, but not both",
+    "If D joins Art, then E joins Science",
+    "Specific scenario being asked: Which must be true?"
+  ],
+  "id": 281274,
+  "sel_idx": 281274,
+  "answer": "C) F joins Science.",
+  "cot": "First, evaluate condition 3, which states either E or F, but not both, must join Art. Therefore, at least one of them must be in Science. Also, consider condition 4 that says if D joins Art, then E must join Science. If E were to be in Art, then this would enforce F in Science due to exclusive choice in condition 3. Since we are focusing on what must be necessarily true in all scenarios, the participation of F in Science is universally consistent. Thus, 'C) F joins Science' must be true under all conditions.",
+  "cot_parsing": [
+    {
+      "statement": "E or F, but not both, must join Art.",
+      "evidence": "Condition 3: Either E or F but not both must join Art; implies one is in Science.",
+      "Verification": "true"
+    },
+    {
+      "statement": "If F joins Art, then E must join Science.",
+      "evidence": "Logical deduction from Condition 3 that E must be in Science if F is in Art.",
+      "Verification": "true"
+    },
+    {
+      "statement": "F must join Science.",
+      "evidence": "It is consistently possible that F is in Science given condition 3, regardless of other conditions.",
+      "Verification": "true"
+    }
+  ]
+}

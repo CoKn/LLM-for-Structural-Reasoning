@@ -1,0 +1,23 @@
+{
+  "question": "Five animals: Lion (L), Tiger (T), Bear (B), Elephant (E), and Monkey (M) are split into enclosures A and B. The conditions are: 1) If L is in enclosure A, T must be in enclosure B. 2) B and E cannot be in the same enclosure. 3) If M is in enclosure B, then L must also be in enclosure B. 4) T and M cannot be in enclosure A together. Question: If B is in enclosure A, what must be true? a) L is in enclosure A. b) E is in enclosure B. c) M is in enclosure A. d) T is in enclosure B.",
+  "question_parsing": [
+    "Entities: Animals L, T, B, E, M.",
+    "Initial setup: Assign each to enclosure A or B.",
+    "Rule 1: If L is in A, T is in B.",
+    "Rule 2: B and E cannot be in the same enclosure.",
+    "Rule 3: If M is in B, L is in B.",
+    "Rule 4: T and M cannot be in enclosure A together.",
+    "Specific scenario: B is in enclosure A."
+  ],
+  "answer": "b",
+  "cot": "Given B is in enclosure A, E must be in enclosure B (Rule 2). Rule 3 does not require adjustments without contradiction as long as L's placement doesn't conflict with M. Rule 4 guides separating T or M from being co-located only in A. Thus, placing E in enclosure B fulfills necessary conditions.",
+  "cot_parsing": [
+    {
+      "statement": "B in enclosure A mandates E in enclosure B.",
+      "evidence": "Rule 2: B and E cannot be in the same enclosure.",
+      "Verification": "true"
+    }
+  ],
+  "id": 804705,
+  "sel_idx": 804705
+}
