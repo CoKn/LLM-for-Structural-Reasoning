@@ -336,27 +336,27 @@ All diagrams are included in the `diagrams/` directory and all the metrics can b
 
 ## Team Contributions
 
-| Name             | Contributions                                           |
-|------------------|---------------------------------------------------------|
-| Erlisa Lokaj     | Data preprocessing, fine-tuning QP/CoT Model, Inference |
-| Erlisa Lokaj     | DeepSeek training and benchmark comparison              |
-| Erlisa Lokaj     | Trained a joint DeBERTa verifier and compared results   |
-| Erlisa Lokaj     | Trained two seperate DeBERTa verifiers for QP and CoT   |
-| Erlisa Lokaj     | Reward Model Based Reranking Strategy                   |
-| Erlisa Lokaj     | Hybrid Inference Strategy v1                            |
-| Erlisa Lokaj     | Hybrid Inference Strategy v2                            |
-| Erlisa Lokaj     | Hybrid Inference Strategy v3                            |
-| Erlisa Lokaj     | Hybrid Inference Strategy v4                            |
-| Erlisa Lokaj     | Hybrid Inference Strategy v5 - Ablation Study           |
-| Erlisa Lokaj     | Diagrams Creations, Comparison Plot, Github CleanUp     |
-| Constantin Knapp | Dataset generation and transformation using the LOGIC701 data set |
-| Constantin Knapp | Synthetic data generation (one gpt call)                |
-| Constantin Knapp | Synthetic data generation (two gpt calls)               |
-| Constantin Knapp | Synthetic data generation (sudoku puzzles)              |
-| Constantin Knapp | Duplicate management for synthetic data                 |
-| Constantin Knapp | Mathematical solver application for synthetic gpt data  |
-| Constantin Knapp | Data quality comparison for all approaches              |
-| Constantin Knapp | Comparison diagram and plots for data approaches        |
+| Name             | Contributions                                                                    |
+|------------------|----------------------------------------------------------------------------------|
+| Erlisa Lokaj     | Data preprocessing, fine-tuning QP/CoT Model, Inference                          |
+| Erlisa Lokaj     | DeepSeek training and benchmark comparison                                       |
+| Erlisa Lokaj     | Trained a joint DeBERTa verifier and compared results                            |
+| Erlisa Lokaj     | Trained two seperate DeBERTa verifiers for QP and CoT                            |
+| Erlisa Lokaj     | Reward Model Based Reranking Strategy                                            |
+| Erlisa Lokaj     | Hybrid Inference Strategy v1                                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v2                                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v3                                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v4                                                     |
+| Erlisa Lokaj     | Hybrid Inference Strategy v5 - Ablation Study                                    |
+| Erlisa Lokaj     | Diagrams Creations, Comparison Plot, Github CleanUp                              |
+| Constantin Knapp | Dataset generation and transformation and finetuning using the LOGIC701 data set |
+| Constantin Knapp | Synthetic data generation and OpenPipe finetuning (one gpt call)                 |
+| Constantin Knapp | Synthetic data generation and OpenPipe finetuning (two gpt calls)                |
+| Constantin Knapp | Synthetic data generation and OpenPipe finetuning (sudoku puzzles)               |
+| Constantin Knapp | Duplicate management for synthetic data                                          |
+| Constantin Knapp | Mathematical solver application for synthetic gpt data                           |
+| Constantin Knapp | Data quality comparison for all approaches                                       |
+| Constantin Knapp | Comparison diagram and plots for data approaches                                 |
 
 
 
