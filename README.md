@@ -347,6 +347,7 @@ All diagrams are included in the `diagrams/` directory and all the metrics can b
 | Erlisa Lokaj     | Hybrid Inference Strategy v2                                            |
 | Erlisa Lokaj     | Hybrid Inference Strategy v3                                            |
 | Erlisa Lokaj     | Hybrid Inference Strategy v4                                            |
+| Erlisa Lokaj     | Hybrid Inference Strategy v5 - Ablation Study                           |
 | Erlisa Lokaj     | Diagrams Creations, Comparison Plot, Github CleanUp                     |
 | Constantin Knapp | Dataset generation and transformation using the LOGIC701 data set       |
 | Constantin Knapp | Synthetic data generation (one gpt call) v1                             |
