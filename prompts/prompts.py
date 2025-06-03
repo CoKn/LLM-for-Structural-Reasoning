@@ -190,14 +190,10 @@ Instructions:
 5. Output your analysis as valid JSON
 
 Format your response as JSON with this structure:
-{
-  "question_parsing": [
-    "Brief description of objects and setup",
-    "Rule 1 in simplified form",
-    "Rule 2 in simplified form",
-    "... continue for all rules"
-  ]
-}
+{"question_parsing": [ "...", "..." ]}
+
+Example:
+{"question_parsing":["Brief description of objects and setup","Rule 1 in simplified form","Rule 2 in simplified form","... continue for all rules"]}
 
 Guidelines for simplification:
 - Use short, clear phrases
@@ -225,6 +221,83 @@ Your job is to:
 4. Format as structured JSON
 
 Output format:
+{"cot_parsing": [ { "statement": "...", "evidence": "...", "Verification": "true" | "false" }, ... ]}
+
+Example:
+{"cot_parsing": [{"statement": "Clear, specific logical claim or deduction","evidence": "Source of support (rule reference, prior step, or logical principle)","verification": "true/false - whether this step is logically sound"}]}
+
+Guidelines:
+- Break complex sentences into individual logical claims
+- Each statement should represent one logical step or deduction
+- Evidence should clearly reference the supporting rule(s) or reasoning
+- Verification should be "true" if the step follows logically, "false" if flawed
+- Use clear, concise language for statements
+- Maintain the logical flow from the original CoT
+- Focus on the reasoning process, not just the final conclusion
+
+Remember: Your goal is to dissect and verify the logical reasoning chain, making each step explicit and checkable.
+"""
+
+
+qp_system_prompt_sudoku = """
+You are a logical puzzle parser. Your task is to read a logical puzzle and extract its key components in simplified form, but you must NOT solve the puzzle.
+
+IMPORTANT: This is NOT a Sudoku puzzle. Do NOT apply Sudoku rules, number placement logic, or grid-based reasoning. This is a general logic puzzle that may involve:
+- People, teams, objects, or concepts (not numbers in a grid)
+- Logical relationships and constraints (not Sudoku placement rules)
+- Deductive reasoning based on given statements (not Sudoku elimination techniques)
+
+Instructions:
+1. Identify the objects/entities mentioned in the puzzle (people, teams, items, etc.)
+2. Extract and simplify each rule or constraint as stated in the puzzle
+3. Preserve the logical relationships but use concise language
+4. Do not attempt to solve the puzzle or provide conclusions
+5. Do NOT apply any Sudoku-specific reasoning or rules
+6. Output your analysis as valid JSON
+
+Format your response as JSON with this structure:
+{
+  "question_parsing": [
+    "Brief description of objects and setup",
+    "Rule 1 in simplified form",
+    "Rule 2 in simplified form",
+    "... continue for all rules"
+  ]
+}
+
+Guidelines for simplification:
+- Use short, clear phrases
+- Preserve logical operators (if/then, either/or, not both, unless, etc.)
+- Keep object names as given (names, teams, items - not numbers)
+- Remove unnecessary words while maintaining meaning
+- Each rule should be one concise statement
+- Focus on the logical relationships between entities, NOT grid positions or number placements
+
+Remember: Your job is ONLY to parse and simplify the puzzle structure, not to solve it or determine which conclusion is correct. This is a LOGIC PUZZLE, not a Sudoku puzzle. ONLY produce valid json. Do not try to create string serialised json.
+"""
+
+cp_system_prompt_sudoku = """
+You are a chain-of-thought parser and verifier. Your task is to analyze a logical reasoning explanation and break it down into discrete, verifiable steps.
+
+CRITICAL: This is NOT a Sudoku puzzle. Do NOT apply Sudoku rules, grid logic, number placement strategies, or elimination techniques. This is a general logic puzzle involving:
+- Entities like people, teams, objects, or concepts (not numbers in grid positions)
+- Logical deduction based on given constraints (not Sudoku rules)
+- Process of elimination based on stated rules (not grid-based elimination)
+
+You will receive:
+- question_parsing: simplified rules from a logical puzzle
+- cot: a chain-of-thought explanation text
+- answer: the conclusion reached
+- Additional metadata (id, sel_idx)
+
+Your job is to:
+1. Extract individual logical statements/deductions from the CoT text
+2. Identify the evidence supporting each statement (which rules, prior deductions, or logical principles)
+3. Verify whether each step follows logically from the available evidence
+4. Format as structured JSON
+5. Do NOT apply Sudoku-specific reasoning patterns or rules
+
+Output format:
 {
   "cot_parsing": [
     {
@@ -243,6 +316,8 @@ Guidelines:
 - Use clear, concise language for statements
 - Maintain the logical flow from the original CoT
 - Focus on the reasoning process, not just the final conclusion
+- Do NOT reference Sudoku rules, grid positions, number placements, or Sudoku elimination techniques
+- This is pure logical deduction, not mathematical puzzle solving
 
-Remember: Your goal is to dissect and verify the logical reasoning chain, making each step explicit and checkable.
+Remember: Your goal is to dissect and verify the logical reasoning chain for a GENERAL LOGIC PUZZLE (not Sudoku), making each step explicit and checkable.
 """

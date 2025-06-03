@@ -74,7 +74,7 @@ def format_qp_for_openpipe_finetuning(question_dataset, system_prompt):
                 },
                 {
                     "role": "assistant",
-                    "content": str(q_item["question_parsing"])
+                    "content": str({"question_parsing": q_item["question_parsing"]})
                 }
             ]
         }
@@ -110,7 +110,7 @@ def format_cp_for_openpipe_finetuning(cot_dataset, system_prompt):
                 },
                 {
                     "role": "assistant",
-                    "content": json.dumps(cot_parsing)
+                    "content": json.dumps({"cot_parsing": cot_parsing})
                 }
             ]
         }
