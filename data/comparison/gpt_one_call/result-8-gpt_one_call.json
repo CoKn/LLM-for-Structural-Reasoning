@@ -1,0 +1,32 @@
+{
+  "question": "A street comprehensive governance committee has 6 members? F, G, H, I, M and P.Each of these members must be a member of at least one of the three sub-committees under the Comprehensive Governance Committee.Each sub-committee is composed of 3 different members.The known information is as follows? one of the six members serves as a member of three subcommittees.F is not a member of the same subcommittee as G.H is not a member of the same subcommittee as I.\nWhich of the following statements must be true?\nA.M and P are members of a subcommittee.\nB.F and H are members of a subcommittee.\nC.G and I are members of a subcommittee.\nD.1 member of any sub-committee.",
+  "question_parsing": [
+    "Six members: F, G, H, I, M, P",
+    "Each member in at least one of three sub-committees",
+    "Each sub-committee has three different members",
+    "One member serves as a member of three subcommittees",
+    "F not a member of the same subcommittee as G",
+    "H not a member of the same subcommittee as I"
+  ],
+  "answer": "a",
+  "id": 338,
+  "sel_idx": 69,
+  "cot": "Since each member must be a member of at least one sub-committee, and each sub-committee has 3 members, we can conclude that each member is a member of exactly one sub-committee. Since F is a member of three sub-committees, it must be the case that F is a member of two sub-committees that have only one member in common, and the third sub-committee has the remaining three members. Since H and I are not members of the same sub-committee, they must be in different sub-committees. Therefore, F cannot be in the same sub-committee as H and I. This means that F must be in a sub-committee with G and M, and the other two sub-committees must have H and I, and P respectively.",
+  "cot_parsing": [
+    {
+      "statement": "F must be in a sub-committee with G and M.",
+      "evidence": "Since F is a member of three sub-committees, it must be the case that F is a member of two sub-committees that have only one member in common, and the third sub-committee has the remaining three members.",
+      "Verification": "true"
+    },
+    {
+      "statement": "H and I are not in the same sub-committee.",
+      "evidence": "Since H and I are not members of the same sub-committee, they must be in different sub-committees.",
+      "Verification": "true"
+    },
+    {
+      "statement": "The sub-committee with F, G, and M does not have H and I.",
+      "evidence": "F cannot be in the same sub-committee as H and I.",
+      "Verification": "true"
+    }
+  ]
+}

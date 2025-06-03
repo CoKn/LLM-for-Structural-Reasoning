@@ -1,0 +1,31 @@
+{
+  "question": "The members of the printing group and the binding group are mainly from the following seven employees-F, G, H, J, K, L and M.The members of each group must meet the following conditions? (1) Each group has at least 3 employees .(2) F and K cannot be in the same group.(3) If K is in a certain group, J must also be in this group.(4) M is at least one of the members of these two groups.(5) At least one of the same employees in both groups.\nIf the members of the printing group are composed of F, H, L, and M, and the members of the binding group are composed of G, H, and J, then K can replace which member of the two groups without violating any of the given conditions?\nA.F\nB.G\nC.H\nD.L",
+  "question_parsing": {
+    "question_parsing": [
+      "The members of the printing group and the binding group are mainly from the following seven employees-F, G, H, J, K, L and M.",
+      "The members of each group must meet the following conditions?",
+      "(1) Each group has at least 3 employees.",
+      "(2) F and K cannot be in the same group.",
+      "(3) If K is in a certain group, J must also be in this group.",
+      "(4) M is at least one of the members of these two groups.",
+      "(5) At least one of the same employees in both groups.",
+      "If the members of the printing group are composed of F, H, L, and M, and the members of the binding group are composed of G, H, and J, then K can replace which member of the two groups without violating any of the given conditions?"
+    ]
+  },
+  "answer": "b",
+  "id": 11,
+  "sel_idx": 11,
+  "cot": "We are given the composition of the printing group and the binding group, and we need to find out which member of the two groups K can replace without violating any of the given conditions. We can analyze the conditions and the composition of the groups to find the answer. \nSince we are given the composition of the printing group and the binding group, we can analyze the conditions and the composition of the groups to find the answer. We can start by identifying the members of each group and the conditions that apply to each group. The members of the printing group are F, H, L, and M, and the members of the binding group are G, H, and J.",
+  "cot_parsing": [
+    {
+      "statement": "K can replace H in the printing group without any issues.",
+      "evidence": "Condition 1 allows K to replace H in the printing group.",
+      "Verification": "true"
+    },
+    {
+      "statement": "K cannot replace any of the members in the binding group as per the given conditions.",
+      "evidence": "Conditions 2 and 3 do not permit K to be in the binding group or replace any of its members.",
+      "Verification": "true"
+    }
+  ]
+}

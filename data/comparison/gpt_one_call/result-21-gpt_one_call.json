@@ -1,0 +1,45 @@
+{
+  "question": "There are 7 athletes participating in the men's 5km finals? S, T, U, W, X, Y and Z.The costumes worn by athletes are either red or green.No athletes reach the finish line at the same time.The known information is as follows? Athletes who reach the finish line in succession are not all red.Y reached the end point at a time before T and W.Two athletes who reached the finish line before Y happened to be wearing red costumes.S is the sixth athlete to reach the finish line.Z reached the end at a certain moment before U.\nIf the clothing of three athletes happens to be green, which of the following athletes must be green?\nA.S\nB.T\nC.W\nD.Z",
+  "question_parsing": [
+    "There are 7 athletes: S, T, U, W, X, Y, and Z.",
+    "The costume colors are either red or green.",
+    "No athletes reach the finish line at the same time.",
+    "Athletes in succession are not all red.",
+    "Y reached before T and W.",
+    "Two athletes before Y wore red.",
+    "S is the sixth to reach the finish line.",
+    "Z reached before U.",
+    "If three athletes wear green, which must be green?"
+  ],
+  "answer": "a",
+  "id": 379,
+  "sel_idx": 379,
+  "cot": "Thought: Let's analyze the given information. We know that Y reached the finish line before T and W, and two athletes who reached the finish line before Y were wearing red costumes. This means that Y is not wearing a red costume. Since S is the sixth athlete to reach the finish line, and Y reached the finish line before S, S must be wearing a green costume. We also know that Z reached the finish line before U, and two athletes who reached the finish line before Y were wearing red costumes. This means that Z is not wearing a red costume, so Z must be wearing a green costume. We have now accounted for three athletes who are wearing green costumes: S, Y, and Z.",
+  "cot_parsing": [
+    {
+      "statement": "Y reached the finish line before T and W.",
+      "evidence": "Given information.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Two athletes who reached the finish line before Y were wearing red costumes.",
+      "evidence": "Given information.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Y is not wearing a red costume.",
+      "evidence": "Two athletes who reached the finish line before Y were wearing red costumes.",
+      "Verification": "true"
+    },
+    {
+      "statement": "S must be wearing a green costume.",
+      "evidence": "Since S is the sixth athlete to reach the finish line, and Y reached the finish line before S.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Z must be wearing a green costume.",
+      "evidence": "Z reached the finish line before U, and two athletes who reached the finish line before Y were wearing red costumes.",
+      "Verification": "true"
+    }
+  ]
+}

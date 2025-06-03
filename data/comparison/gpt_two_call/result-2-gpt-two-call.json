@@ -1,0 +1,54 @@
+{
+  "question": "In a magic show, from the seven magicians-G.H.K.L.N.P and Q, choose 6 people to play, and the performance is divided into two teams? 1 team and 2 teams.Each team consists of three positions? front, middle, and back.The magicians on the field happen to occupy one position each.The choice and location of the magician must meet the following conditions? (1) If G or H is arranged to play, they must be in the front.Bit.(2) If K is scheduled to play, he must be in the middle.(3) If L is scheduled to play, he must be on team 1.(4) Neither P nor K can be in the same team as N.(5) P cannot be in the same team as Q.(6) If H is in team 2, Q is in the middle of team 1.\nWhich of the following is an acceptable arrangement for the first team's performance?\nA.Before? Q In? L After? N\nB.Before? L Middle? K After? Q\nC.Before? Q In? K After? P\nD.Before? G In? K After? P",
+  "question_parsing": {
+    "question_parsing": [
+      "Initial setup: Choose 6 people from 7 magicians (G.H.K.L.N.P and Q) and divide them into two teams of three people each.",
+      "Each team has positions: front, middle, and back.",
+      "Magicians occupy one position each.",
+      "Conditions for choosing and placing magicians:",
+      "(1) If G or H is arranged to play, they must be in the front.",
+      "(2) If K is scheduled to play, he must be in the middle.",
+      "(3) If L is scheduled to play, he must be on team 1.",
+      "(4) Neither P nor K can be in the same team as N.",
+      "(5) P cannot be in the same team as Q.",
+      "(6) If H is in team 2, Q is in the middle of team 1.",
+      "Question: Identify an acceptable arrangement for the first team\"s performance."
+    ]
+  },
+  "answer": "a",
+  "id": 476,
+  "sel_idx": 95,
+  "cot": "Let's analyze the conditions given:\n\n1. If G or H is arranged to play, they must be in the front.\n2. If K is scheduled to play, he must be in the middle.\n3. If L is scheduled to play, he must be on team 1.\n4. Neither P nor K can be in the same team as N.\n5. P cannot be in the same team as Q.\n6. If H is in team 2, Q is in the middle of team 1.\n\nWe need to find an acceptable arrangement for the first team's performance, which consists of three positions: front, middle, and back. Let's try to find a possible arrangement for the first team's performance. We can start by considering the conditions one by one.\n\nFrom condition 1, we know that if G or H is arranged to play, they must be in the front. Let's assume G is in the front.\n\nFrom condition 3, we know that if L is scheduled to play, he must be on team 1. Since L is not in the front, he must be in the middle or back. Let's assume L is in the middle.\n\nFrom condition 2, we know that if K is scheduled to play, he must be in the middle. Since L is already in the middle, K cannot be in the middle. Therefore, K must be in the back.\n\nFrom condition 4, we know that neither P nor K can be in the same team as N. Since K is in the back, P cannot be in the back. Therefore, P must be in the front or middle. However, P cannot be in the same team as Q, so P cannot be in the same team as L. Therefore, P must be in the front.\n\nFrom condition 6, we know that if H is in team 2, Q is in the middle of team 1. Since G is already in the front, H cannot be in team 1. Therefore, H must be in team 2.\n\nNow we have a possible arrangement for the first team's performance:\n\nFront: G, P\nMiddle: L\nBack: K\n\nPlease proceed to the next step",
+  "cot_parsing": [
+    {
+      "statement": "Assume G is in the front.",
+      "evidence": "Condition 1: If G or H is arranged to play, they must be in the front.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Assume L is in the middle.",
+      "evidence": "Condition 3: If L is scheduled to play, he must be on team 1.",
+      "Verification": "true"
+    },
+    {
+      "statement": "K must be in the back.",
+      "evidence": "Condition 2: If K is scheduled to play, he must be in the middle. But L is already in the middle, so K cannot be.",
+      "Verification": "true"
+    },
+    {
+      "statement": "P must be in the front.",
+      "evidence": "Condition 4: Neither P nor K can be in the same team as N. Since K is in the back, P cannot be. Also, P cannot be in the same team as L.",
+      "Verification": "true"
+    },
+    {
+      "statement": "H must be in team 2.",
+      "evidence": "Condition 6: If H is in team 2, Q is in the middle of team 1. But G is already in the front, H cannot be in team 1.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Front: G, P; Middle: L; Back: K",
+      "evidence": "Logical deduction from all conditions.",
+      "Verification": "true"
+    }
+  ]
+}

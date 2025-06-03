@@ -1,0 +1,42 @@
+{
+  "question": "Three Chinese students Zhang Lin, Zhao Qiang, Li Shan and three foreign students John, Jesse, and Anna went on a summer vacation.Alternative tourist destinations include Xi'an, Hangzhou, Dalian and Zhangjiajie.It is already known that? (1) each person can only go to one place; (2) wherever Chinese students go, foreign students must go; (3) where there are foreign students, Chinese students must go; (4) John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie.\nIf the conclusion of the question is true, which two people cannot go to Hangzhou at the same time?\nA.Zhang Lin and Li Shan\nB.Li Shan and Anna\nC.Jesse and Anna\nD.Zhang Lin and Jessie",
+  "question_parsing": {
+    "question_parsing": [
+      "Three Chinese students Zhang Lin, Zhao Qiang, Li Shan and three foreign students John, Jesse, and Anna went on a summer vacation.",
+      "Alternative tourist destinations include Xi\"an, Hangzhou, Dalian and Zhangjiajie.",
+      "It is already known that? (1) each person can only go to one place; (2) wherever Chinese students go, foreign students must go; (3) where there are foreign students, Chinese students must go; (4) John went to Xi\"an or Hangzhou, and Zhao Qiang went to Zhangjiajie.",
+      "If the conclusion of the question is true, which two people cannot go to Hangzhou at the same time?"
+    ]
+  },
+  "answer": "c",
+  "id": 208,
+  "sel_idx": 97,
+  "cot": "Since it is known that (2) wherever Chinese students go, foreign students must go, and (3) where there are foreign students, Chinese students must go, we can conclude that if a Chinese student goes to a destination, a foreign student must also go to the same destination. We are also given that John went to Xi'an or Hangzhou, and Zhao Qiang went to Zhangjiajie. This means that if John went to Xi'an, Zhao Qiang must have gone to Zhangjiajie, and if John went to Hangzhou, Zhao Qiang must have gone to Zhangjiajie. Since Zhang Lin and Li Shan are Chinese students, they cannot both go to Hangzhou if John went to Hangzhou, because Zhao Qiang would have to go to Zhangjiajie, and there would be no foreign students left to go to Hangzhou. Similarly, if John went to Xi'an, Zhang Lin and Li Shan cannot both go to Hangzhou, because Zhao Qiang would have to go to Zhangjiajie, and there would be no Chinese students left to go to Hangzhou. Therefore, Zhang Lin and Li Shan cannot go to Hangzhou at the same time.",
+  "cot_parsing": [
+    {
+      "statement": "If John went to Xi'an, Zhao Qiang must have gone to Zhangjiajie.",
+      "evidence": "Condition (3): Wherever Chinese students go, foreign students must go.",
+      "Verification": "true"
+    },
+    {
+      "statement": "If John went to Hangzhou, Zhao Qiang must have gone to Zhangjiajie.",
+      "evidence": "Condition (3): Wherever Chinese students go, foreign students must go.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Zhang Lin and Li Shan cannot both go to Hangzhou if John went to Hangzhou.",
+      "evidence": "Condition (2): Wherever Chinese students go, foreign students must go, and there being no foreign students left to go to Hangzhou.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Zhang Lin and Li Shan cannot both go to Hangzhou if John went to Xi'an.",
+      "evidence": "Condition (2): Wherever Chinese students go, foreign students must go, and there being no Chinese students left to go to Hangzhou.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Zhang Lin and Li Shan cannot go to Hangzhou at the same time.",
+      "evidence": "Logical deduction from all conditions.",
+      "Verification": "true"
+    }
+  ]
+}

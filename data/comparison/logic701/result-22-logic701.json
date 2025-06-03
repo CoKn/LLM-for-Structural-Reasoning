@@ -1,0 +1,44 @@
+{
+  "question": "The members of the printing group and the binding group are mainly from the following seven employees-F, G, H, J, K, L and M. The members of each group must meet the following conditions? (1) Each group has at least 3 employees .(2) F and K cannot be in the same group.(3) If K is in a certain group, J must also be in this group.(4) M is at least one of the members of these two groups.(5) At least one of the same employees in both groups.\nIf both K and L are members of both groups, and the printing group has exactly three members, which of the following statements must be true?\nA.F in printing group\nB.F in the binding group\nC.G in the printing group\nD.M in the bookbinding group",
+  "question_parsing": [
+    "The members of the printing group and the binding group are mainly from the following seven employees-F, G, H, J, K, L and M.",
+    "Each group has at least 3 employees.",
+    "F and K cannot be in the same group.",
+    "If K is in a certain group, J must also be in this group.",
+    "M is at least one of the members of these two groups.",
+    "At least one of the same employees in both groups.",
+    "Both K and L are members of both groups.",
+    "The printing group has exactly three members."
+  ],
+  "answer": "d",
+  "id": 412,
+  "sel_idx": 412,
+  "cot": "Since K and L are members of both groups, and the printing group has exactly three members, we can deduce that K, L, and one other member must be in the printing group. From condition (3), if K is in a group, J must also be in that group. Since K is in both groups, J must also be in both groups. From condition (4), M is at least one of the members of these two groups, so M must be in either the printing group or the binding group. Since the printing group has exactly three members, M cannot be in the printing group. Therefore, M must be in the binding group.",
+  "cot_parsing": [
+    {
+      "statement": "K, L, and one other member must be in the printing group.",
+      "evidence": "Since K and L are members of both groups, and the printing group has exactly three members.",
+      "Verification": "true"
+    },
+    {
+      "statement": "J must also be in both groups.",
+      "evidence": "From condition (3), if K is in a group, J must also be in that group.",
+      "Verification": "true"
+    },
+    {
+      "statement": "M must be in either the printing group or the binding group.",
+      "evidence": "From condition (4), M is at least one of the members of these two groups.",
+      "Verification": "true"
+    },
+    {
+      "statement": "M cannot be in the printing group.",
+      "evidence": "Since the printing group has exactly three members, M cannot be in the printing group.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Therefore, M must be in the binding group.",
+      "evidence": "Therefore, by process of elimination, M must be in the binding group.",
+      "Verification": "true"
+    }
+  ]
+}

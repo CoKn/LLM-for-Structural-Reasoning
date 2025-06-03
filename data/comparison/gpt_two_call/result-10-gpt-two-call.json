@@ -1,0 +1,43 @@
+{
+  "question": "A certain class intends to select two of three girls from Fang Rufen, Guo Yanran, He Zhilian, and three from five male students such as Peng Youwen, Qiu Zhijie, Ren Xiangyang, Song Wenkai, Tang Xiaohua to form a five-person support group for college students to volunteer teaching in the mountains.Requirements? (1) Guo Yanran and Tang Xiaohua are not selected at the same time; (2) Peng Youwen and Song Kaiwen are not selected at the same time; (3) Qiu Zhijie and Tang Xiaohua are not selected at the same time.\nWhich of the following must be selected?\nA.Fang Rufen\nB.Guo Yanran\nC.Song Kaiwen\nD.Ren Xiangyang",
+  "question_parsing": {
+    "question_parsing": [
+      "Initial setup: Select 2 girls from 3 (Fang Rufen, Guo Yanran, He Zhilian) and 3 boys from 5 (Peng Youwen, Qiu Zhijie, Ren Xiangyang, Song Wenkai, Tang Xiaohua)",
+      "Condition 1: Guo Yanran and Tang Xiaohua are not selected at the same time",
+      "Condition 2: Peng Youwen and Song Wenkai are not selected at the same time",
+      "Condition 3: Qiu Zhijie and Tang Xiaohua are not selected at the same time",
+      "Question: Which of the following must be selected? A.Fang Rufen B.Guo Yanran C.Song Wenkai D.Ren Xiangyang"
+    ]
+  },
+  "answer": "d",
+  "id": 32,
+  "sel_idx": 78,
+  "cot": "We need to find the must-selected students. Let's analyze the given conditions:\n\n1. Guo Yanran and Tang Xiaohua are not selected at the same time.\n2. Peng Youwen and Song Kaiwen are not selected at the same time.\n3. Qiu Zhijie and Tang Xiaohua are not selected at the same time.\n\nFrom condition 1, we know that either Guo Yanran or Tang Xiaohua must be selected. Let's assume Guo Yanran is selected. Then, Tang Xiaohua cannot be selected, and we have 2 girls and 4 boys left.\n\nFrom condition 2, we know that Peng Youwen and Song Kaiwen are not selected at the same time. This means that at least one of them must be selected.\n\nFrom condition 3, we know that Qiu Zhijie and Tang Xiaohua are not selected at the same time. Since Tang Xiaohua is not selected, Qiu Zhijie can be selected.",
+  "cot_parsing": [
+    {
+      "statement": "Either Guo Yanran or Tang Xiaohua must be selected.",
+      "evidence": "Condition 1: Guo Yanran and Tang Xiaohua are not selected at the same time.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Assume Guo Yanran is selected, then Tang Xiaohua is not selected.",
+      "evidence": "Condition 1: Guo Yanran and Tang Xiaohua are not selected at the same time.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Peng Youwen and Song Kaiwen are not selected at the same time, so at least one of them must be selected.",
+      "evidence": "Condition 2: Peng Youwen and Song Kaiwen are not selected at the same time.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Qiu Zhijie can be selected since he is not selected at the same time as Tang Xiaohua.",
+      "evidence": "Condition 3: Qiu Zhijie and Tang Xiaohua are not selected at the same time.",
+      "Verification": "true"
+    },
+    {
+      "statement": "The must-selected students are Guo Yanran, Peng Youwen, Song Kaiwen, and Qiu Zhijie.",
+      "evidence": "Logical deduction based on all conditions.",
+      "Verification": "true"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "question": "A company has a 6-story office building.The company's finance department, planning department, administration department, sales department, human resources department, and research and development department work here, and each department occupies one of the floors.Known? (1) The two floors of the human resources department and the sales department are not adjacent; (2) The finance department is on the next floor of the planning department; (3) The floor of the administrative department is above the planning department, but in the manpower Below the Resources Department.\nIf the human resources department is not on the top floor, the floors that the R & D department may be on are?\nA.3, 4, 6\nB.3, 4, 5\nC.4, 5\nD.5, 6",
+  "question_parsing": [
+    "A company with a 6-story office building",
+    "Each department occupies one floor",
+    "(1) Human resources and sales are not adjacent",
+    "(2) Finance is next to planning",
+    "(3) Administration is above planning but below HR",
+    "If HR is not on the top, where can R&D be?"
+  ],
+  "answer": "d",
+  "id": 497,
+  "sel_idx": 67,
+  "cot": "Let's analyze the given information. We know that the human resources department and the sales department are not adjacent, so they cannot be on the same floor. We also know that the finance department is on the floor above the planning department, and the administrative department is above the planning department but below the human resources department. This means that the planning department is on a floor that is below the administrative department and the human resources department. Since the human resources department is not on the top floor, the top floor must be occupied by either the research and development department or the sales department. We can eliminate option D because the sales department cannot be on the top floor. We can also eliminate option C because the research and development department cannot be on the floor below the human resources department. This leaves us with options A and B. We can eliminate option B because the research and development department cannot be on the floor below the administrative department. Therefore, the research and development department must be on either floor 3 or floor 4.",
+  "cot_parsing": [
+    {
+      "statement": "The human resources department and the sales department cannot be on the same floor.",
+      "evidence": "They are in different departments, and one must be above the other.",
+      "Verification": "true"
+    },
+    {
+      "statement": "The finance department is above the planning department.",
+      "evidence": "Given in the scenario.",
+      "Verification": "true"
+    },
+    {
+      "statement": "The administrative department is above the planning department and below the human resources department.",
+      "evidence": "Given in the scenario.",
+      "Verification": "true"
+    },
+    {
+      "statement": "The research and development department must be on either floor 3 or floor 4.",
+      "evidence": "Eliminated options C and D.",
+      "Verification": "true"
+    }
+  ]
+}

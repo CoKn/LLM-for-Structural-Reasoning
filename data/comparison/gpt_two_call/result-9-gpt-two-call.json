@@ -1,0 +1,47 @@
+{
+  "question": "There are 6 rectangular vegetable ponds of the same size in a plastic shed, arranged in order from left to right? 1, 2, 3, 4, 5 and 6.And No.1 and No.6 are not adjacent.There are exactly 6 kinds of vegetables that need to be planted in the greenhouse? Q, L, H, x, S and Y.Each vegetable pond can only grow one of them.The planting arrangement must meet the following conditions? Q is planted in a vegetable pond on the left side of H.X species are in No.1 or No.6 vegetable ponds.No.3 vegetable pond is planted with Y or s.L is planted right next to S.\nIf the H species is in No.2 Caichizi, which of the following statements must be true?\nA.X species are in No.6 vegetable pond.\nB.Type L is in No.4 vegetable pond.\nC.L is planted in No.5 vegetable pond.\nD.Type Y is in No.3 vegetable pond.",
+  "question_parsing": {
+    "question_parsing": [
+      "There are 6 rectangular vegetable ponds (1, 2, 3, 4, 5, 6) in a plastic shed.",
+      "Ponds 1 and 6 are not adjacent.",
+      "There are 6 kinds of vegetables: Q, L, H, X, S, Y.",
+      "Each pond can only grow one type of vegetable.",
+      "Q is planted in a pond to the left of H.",
+      "X is planted in pond 1 or 6.",
+      "Y or S is planted in pond 3.",
+      "L is planted next to S.",
+      "If H is planted in pond 2, determine what must be true."
+    ]
+  },
+  "answer": "a",
+  "id": 411,
+  "sel_idx": 74,
+  "cot": "Since H is in the No.2 vegetable pond, and No.1 and No.6 are not adjacent, H cannot be in No.1 or No.6. This means that X must be in No.1 or No.3. Since No.3 is planted with Y or S, and L is planted right next to S, L cannot be in No.3. Therefore, L must be in No.4 or No.5. Since L is not in No.3, Y must be in No.3. This means that S must be in No.5.",
+  "cot_parsing": [
+    {
+      "statement": "H is in the No.2 vegetable pond.",
+      "evidence": "Given condition.",
+      "Verification": "true"
+    },
+    {
+      "statement": "No.1 and No.6 are not adjacent, so H cannot be in No.1 or No.6.",
+      "evidence": "Given condition stating that H cannot be in No.1 or No.6 if they are not adjacent.",
+      "Verification": "true"
+    },
+    {
+      "statement": "X must be in No.1 or No.3.",
+      "evidence": "Since H cannot be in No.1 or No.6, X must be in one of the remaining two spots.",
+      "Verification": "true"
+    },
+    {
+      "statement": "L cannot be in No.3, so L must be in No.4 or No.5.",
+      "evidence": "L is planted next to S, who cannot be in No.5 if L is in No.3.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Y must be in No.3, and S must be in No.5.",
+      "evidence": "Since L must be next to S, S cannot be in No.3, hence S must be in No.5.",
+      "Verification": "true"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "question": "There are 6 singers? F, G, L, K, H, M.3 piano accompaniment? X, Y, W.Each piano accompanimentist happened to accompany two of the singers. Known condition information is as follows? (1) If X is F accompaniment, then W is L accompaniment.(2) If X is not a G accompaniment, then Y is an M accompaniment.(3) X or Y is H accompaniment.(4) F and G do not share accompaniment; L and K do not share accompaniment; H and M do not share accompaniment.\nIf W is the accompaniment of F and M, which pair of singers can X accompany?\nA.G and H\nB.G and K\nC.L and H\nD.L and K",
+  "question_parsing": [
+    "There are 6 singers: F, G, L, K, H, M.",
+    "3 piano accompaniment: X, Y, W.",
+    "Each piano accompanimentist happened to accompany two of the singers.",
+    "Known condition information is as follows:",
+    "(1) If X is F accompaniment, then W is L accompaniment.",
+    "(2) If X is not a G accompaniment, then Y is an M accompaniment.",
+    "(3) X or Y is H accompaniment.",
+    "(4) F and G do not share accompaniment; L and K do not share accompaniment; H and M do not share accompaniment.",
+    "If W is the accompaniment of F and M, which pair of singers can X accompany?"
+  ],
+  "answer": "b",
+  "id": 396,
+  "sel_idx": 396,
+  "cot": "Thought: We are trying to find out which pair of singers X can accompany. We know that W is the accompaniment of F and M. We also know that X or Y is H accompaniment. Since W is not H accompaniment (because W is the accompaniment of F and M, and H and M do not share accompaniment), X must be H accompaniment. Now, we need to find out which singer G accompanies. We know that X is not G accompaniment (because X is H accompaniment, and X or Y is H accompaniment). We also know that F and G do not share accompaniment. Therefore, G must accompany K. Now, we can conclude that X accompanies H, and G accompanies.",
+  "cot_parsing": [
+    {
+      "statement": "X must be H accompaniment.",
+      "evidence": "W is not H accompaniment (because W is the accompaniment of F and M).",
+      "Verification": "true"
+    },
+    {
+      "statement": "G must accompany K.",
+      "evidence": "X is not G accompaniment (because X is H accompaniment).",
+      "Verification": "true"
+    },
+    {
+      "statement": "The conclusion is X accompanies H and G accompanies K.",
+      "evidence": "F and G do not share accompaniment.",
+      "Verification": "true"
+    }
+  ]
+}

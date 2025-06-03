@@ -1,0 +1,38 @@
+{
+  "question": "There are 7 heart disease patients E, F, G, H, I, J, K to be assigned to 4 doctors for treatment, they are Dr.Zhang, Dr.Li, Dr.Wang and Dr.Liu.Only one doctor is responsible for each patient, and each doctor is responsible for the treatment of up to two patients.Among the patients, J and K are children, and the remaining 5 are adults; E, F, and J are males, and the remaining 4 are females.The following conditions must be met? (1) Dr.Zhang is only responsible for treating male patients.(2) Dr.Li can only be responsible for the treatment of 1 patient.(3) If a doctor is responsible for treating a child patient, then he must be responsible for the treatment of an adult patient of the same sex as the child.\nBased on the above conditions, which of the following must be true?\nA.Doctor F is responsible for treatment.\nC.J is treated by Dr.Zhang.\nB.C is treated by Dr.Liu.\nD.H is treated by Dr.Wang.",
+  "question_parsing": [
+    "There are 7 heart disease patients E, F, G, H, I, J, K to be assigned to 4 doctors for treatment.",
+    "Only one doctor is responsible for each patient, and each doctor is responsible for the treatment of up to two patients.",
+    "Among the patients, J and K are children, and the remaining 5 are adults.",
+    "E, F, and J are males, and the remaining 4 are females.",
+    "Dr.Zhang is only responsible for treating male patients.",
+    "Dr.Li can only be responsible for the treatment of 1 patient.",
+    "If a doctor is responsible for treating a child patient, then he must be responsible for the treatment of an adult patient of the same sex as the child."
+  ],
+  "answer": "c",
+  "id": 464,
+  "sel_idx": 464,
+  "cot": "Let's analyze the conditions and the given information. Dr. Zhang is only responsible for treating male patients. Since E, F, and J are males, Dr. Zhang must be responsible for at least one of them. Condition (3) states that if a doctor is responsible for treating a child patient, then he must be responsible for the treatment of an adult patient of the same sex as the child. Since J and K are children, and E, F, and J are males, Dr. Zhang must be responsible for treating J, and since J is a male, Dr. Zhang must also be responsible for treating an adult male patient. This means Dr. Zhang is responsible for treating either E or F. Among the patients, J and K are children, and the remaining 5 are adults",
+  "cot_parsing": [
+    {
+      "statement": "Dr. Zhang must be responsible for at least one of E, F, and J.",
+      "evidence": "Dr. Zhang treats only male patients. E, F, and J are males.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Condition (3) implies that for male child patients, Dr. Zhang must treat a male adult.",
+      "evidence": "If a doctor treats a child patient, they must treat an adult patient of the same sex.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Dr. Zhang is responsible for treating J and must treat an adult male.",
+      "evidence": "J is a male child patient, and Dr. Zhang treats males.",
+      "Verification": "true"
+    },
+    {
+      "statement": "Dr. Zhang is responsible for either E or F.",
+      "evidence": "Dr. Zhang must treat an adult male in addition to J.",
+      "Verification": "true"
+    }
+  ]
+}
