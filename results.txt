@@ -1,0 +1,63 @@
+ Evaluation Results for: gpt one call
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Metric                      ┃ Value  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Question_Macro_F1           │ 0.6222 │
+│ Statement_Macro_F1          │ 0.5009 │
+│ Statement_Evidence_Macro_F1 │ 0.1438 │
+│ Reasoning_F1                │ 0.099  │
+└─────────────────────────────┴────────┘
+Question_Macro_F1: 0.6222
+Statement_Macro_F1: 0.5009
+Statement_Evidence_Macro_F1: 0.1438
+Reasoning_F1: 0.099
+
+----------
+
+ Evaluation Results for: logic701
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Metric                      ┃ Value  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Question_Macro_F1           │ 0.8775 │
+│ Statement_Macro_F1          │ 0.5548 │
+│ Statement_Evidence_Macro_F1 │ 0.2692 │
+│ Reasoning_F1                │ 0.181  │
+└─────────────────────────────┴────────┘
+Question_Macro_F1: 0.8775
+Statement_Macro_F1: 0.5548
+Statement_Evidence_Macro_F1: 0.2692
+Reasoning_F1: 0.181
+
+----------
+
+ Evaluation Results for:  gpt two calls
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Metric                      ┃ Value  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Question_Macro_F1           │ 0.7092 │
+│ Statement_Macro_F1          │ 0.5251 │
+│ Statement_Evidence_Macro_F1 │ 0.237  │
+│ Reasoning_F1                │ 0.1284 │
+└─────────────────────────────┴────────┘
+Question_Macro_F1: 0.7092
+Statement_Macro_F1: 0.5251
+Statement_Evidence_Macro_F1: 0.237
+Reasoning_F1: 0.1284
+
+
+------
+ Evaluation Results for: sudoku
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Metric                      ┃ Value  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Question_Macro_F1           │ 0.2563 │
+│ Statement_Macro_F1          │ 0.1565 │
+│ Statement_Evidence_Macro_F1 │ 0.0    │
+│ Reasoning_F1                │ 0.0    │
+└─────────────────────────────┴────────┘
+Question_Macro_F1: 0.2563
+Statement_Macro_F1: 0.1565
+Statement_Evidence_Macro_F1: 0.0
+Reasoning_F1: 0.0
+
+
