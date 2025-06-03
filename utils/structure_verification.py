@@ -97,7 +97,7 @@ def verify_all_gpt_items(data_list):
         if errs:
             bad_entries.append((idx, errs))
         else:
-            good_indices.append(idx)
+            good_indices.append(item)
 
     # Print how many entries failed validation
     print(f"Found {len(bad_entries)} wrongly formatted entr{'y' if len(bad_entries)==1 else 'ies'}.")
