@@ -16,7 +16,7 @@ class SudokuEnvironment:
         for i, row in enumerate(self.grid):
             line = "| "
             for j, cell in enumerate(row):
-                line += f"{cell if cell != 0 else '.'} "
+                line += f"{cell if cell != 0 else '_'} "
                 if j == 1:
                     line += "| "
             line += "|"
@@ -85,6 +85,7 @@ class SudokuEnvironment:
         deductions = []
         deduction_statement = []
         deduction_evidence = []
+        data = []
         changes_made = False
         found_deductions = set() if unique_only else None  # Track (row, col, value) to avoid duplicates
 
@@ -112,8 +113,15 @@ class SudokuEnvironment:
                                     deductions.append(
                                         f"Position ({row},{col}) must be {value} (only valid value {calc_explanation})"
                                     )
-                                    deduction_statement.append( f"Position ({row},{col}) must be {value}")
+                                    deduction_statement.append(f"Position ({row},{col}) must be {value}")
                                     deduction_evidence.append(f"Only valid value{calc_explanation}")
+                                    data.append({"row": row,
+                                                 "col": col,
+                                                 "value": value,
+                                                 "full_deduction": f"Position ({row},{col}) must be {value} (only valid value {calc_explanation})",
+                                                 "statement": f"Position ({row},{col}) must be {value}",
+                                                 "evidence": f"Only valid value{calc_explanation}"
+                                                 })
 
             # Hidden singles
             units = (
@@ -151,6 +159,13 @@ class SudokuEnvironment:
                                     )
                                     deduction_statement.append(f"Position ({r},{c}) must be {value}")
                                     deduction_evidence.append(f"Only position in {unit_desc} for {value}{calc_explanation})")
+                                    data.append({"row": r,
+                                                 "col": c,
+                                                 "value": value,
+                                                 "full_deduction": f"Position ({r},{c}) must be {value} (only valid value {calc_explanation})",
+                                                 "statement": f"Position ({r},{c}) must be {value}",
+                                                 "evidence": f"Only valid value{calc_explanation}"
+                                                 })
 
             if apply_changes:
                 if iteration_changes:
@@ -160,7 +175,7 @@ class SudokuEnvironment:
             else:
                 break
 
-        return changes_made if apply_changes else deductions, deduction_statement, deduction_evidence
+        return changes_made if apply_changes else deductions, deduction_statement, deduction_evidence, data
 
     def _get_unit_description(self, unit_type, unit_id):
         """Get human-readable description of a unit."""
@@ -351,6 +366,42 @@ class SudokuEnvironment:
 
         return True
 
+    def get_all_units_as_strings(sudoku):
+        """
+        Get all rows, columns, and squares of the Sudoku grid as strings.
+        Empty cells (0s) are represented as '.'
+
+        Args:
+            sudoku: A SudokuEnvironment object
+
+        Returns:
+            dict: A dictionary with keys 'rows', 'columns', and 'squares',
+                  each containing a list of strings representing the units
+        """
+        grid = sudoku.grid
+        result = {'rows': [], 'columns': [], 'squares': []}
+
+        # Get rows as strings
+        for row in grid:
+            row_str = ' '.join(str(cell) if cell != 0 else '_' for cell in row)
+            result['rows'].append(row_str)
+
+        # Get columns as strings
+        for col in range(4):
+            col_str = ' '.join(str(grid[row][col]) if grid[row][col] != 0 else '_' for row in range(4))
+            result['columns'].append(col_str)
+
+        # Get squares (2x2 blocks) as strings
+        for block_row in range(0, 4, 2):
+            for block_col in range(0, 4, 2):
+                square_str = ' '
+                for r in range(block_row, block_row + 2):
+                    for c in range(block_col, block_col + 2):
+                        square_str += str(grid[r][c]) if grid[r][c] != 0 else '_'
+                result['squares'].append(square_str)
+
+        return result
+
 
 if __name__ == "__main__":
     sudoku = SudokuEnvironment()
@@ -359,7 +410,8 @@ if __name__ == "__main__":
 
         print("Logical deductions:")
         deductions = sudoku.get_explicit_deductions(unique_only=True)
-        for d in deductions:
+        print(len(deductions[0]))
+        for d in deductions[-1]:
             print(f"- {d}")
 
         print(f"\nPuzzle is valid: {sudoku.is_valid()}")
