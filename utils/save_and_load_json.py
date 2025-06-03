@@ -63,3 +63,9 @@ def load_all_json_files(folder_path):
 
     print(f"Loaded {len(all_data)} JSON files from {folder_path}")
     return all_data
+
+
+def save_jsonl(data, filename):
+    with open(filename, 'w') as f:
+        for item in data:
+            f.write(json.dumps(item) + '\n')
