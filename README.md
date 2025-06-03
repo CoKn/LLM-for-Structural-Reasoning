@@ -178,8 +178,17 @@ This approach enables controllable and explainable reasoning, supporting future 
 │   ├── *.json                        # Per-strategy evaluation metrics
 │   └── evaluation_table.md           # Summary comparison table
 ├── predictions/                      # Final test predictions from inference
-├── utils/                            # Helper scripts (e.g., evaluation)
-│   └── eval.py
+├── prompts
+    └── prompts.py
+
+└── utils                             # Helper scripts (e.g., evaluation)
+    ├── AzureAdapter.py
+    ├── duplicate_management.py
+    ├── eval.py
+    ├── save_and_load_json.py
+    ├── structure_verification.py
+    ├── sudoku.py
+    └── transfrom_data_for_finetuing.py
 ├── .gitignore
 ├── requirements.txt                  # Project dependencies
 ├── README.md                         # Project overview and instructions
@@ -193,6 +202,10 @@ This approach enables controllable and explainable reasoning, supporting future 
 ├── 7_Reward-Based Reranking.ipynb    # Reranking with reward model
 ├── 8_Joint Verifier+Ensemble Scoring.ipynb  # QP + CoT DeBERTa Verifiers
 ├── 9_Training Two Seperate Verifiers.ipynb  # Train separate verifiers
+├── 10_Synthetic_Data_Generation_gpt.ipynb   
+├── 11_Synthetic_Data_Generation_Sudoku.ipynb
+├── 12_Solver_Data_Generation.ipynb
+├── 13_OpenPipe_Finetuning.ipynb
 ├── Hybrid_Inference_Strategy_v1.ipynb       # Simple hybrid strategy
 ├── Hybrid_Inference_Strategy_v2.ipynb       # Beam + sampling + verifier reranking
 ├── Hybrid_Inference_Strategy_v3.ipynb       # CoT cleaning improvements
