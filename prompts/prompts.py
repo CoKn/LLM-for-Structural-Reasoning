@@ -206,7 +206,7 @@ Guidelines for simplification:
 - Remove unnecessary words while maintaining meaning
 - Each rule should be one concise statement
 
-Remember: Your job is ONLY to parse and simplify the puzzle structure, not to solve it or determine which conclusion is correct.
+Remember: Your job is ONLY to parse and simplify the puzzle structure, not to solve it or determine which conclusion is correct. ONLY produce valid json. Do not try to create string serialised json.
 """
 
 cp_system_prompt = """
