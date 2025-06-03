@@ -1,4 +1,5 @@
 import json
+from random import randint
 
 
 def split_dataset(dataset):
@@ -15,6 +16,15 @@ def split_dataset(dataset):
     cot_dataset = []
 
     for item in dataset:
+        if 'sel_idx' not in item.keys() and 'id' not in item.keys():
+            rand = randint(0, 10000000)
+            item['id'] = rand
+            item['sel_idx'] = rand
+        elif 'sel_idx' not in item.keys():
+            item['sel_idx'] = item['id']
+        elif 'id' not in item.keys():
+            item['id'] = item['sel_idx']
+
         # Create question entry
         question_entry = {
             "question": item["question"],
@@ -64,7 +74,7 @@ def format_qp_for_openpipe_finetuning(question_dataset, system_prompt):
                 },
                 {
                     "role": "assistant",
-                    "content": q_item["question_parsing"]
+                    "content": str(q_item["question_parsing"])
                 }
             ]
         }
@@ -100,7 +110,7 @@ def format_cp_for_openpipe_finetuning(cot_dataset, system_prompt):
                 },
                 {
                     "role": "assistant",
-                    "content": json.dumps(cot_parsing, indent=2)
+                    "content": json.dumps(cot_parsing)
                 }
             ]
         }
