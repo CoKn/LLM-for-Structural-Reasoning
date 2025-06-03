@@ -9,6 +9,17 @@ class SudokuEnvironment:
             self.grid = [row[:] for row in grid]
         self.solution = None
 
+    def get_grid_signature(self) -> str:
+        """Create a unique signature for the puzzle grid."""
+        # Convert the 4x4 grid to a standardized string representation
+        grid = self.grid
+        # Flatten the grid and convert to string for consistent comparison
+        flattened = []
+        for row in grid:
+            for cell in row:
+                flattened.append(str(cell))
+        return ''.join(flattened)
+
     def display(self, print_game=True):
         """Display the 4x4 Sudoku grid in a readable format and return the string."""
         lines = []
